@@ -1,0 +1,231 @@
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git init -b main
+Initialized empty Git repository in /Users/chanbormeymao/Desktop/Sprint1-Official/.git/
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git add .
+warning: CRLF will be replaced by LF in chingsien/delete.php.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in editing.php.
+The file will have its original line endings in your working directory
+warning: CRLF will be replaced by LF in productVIew.php.
+The file will have its original line endings in your working directory
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git add .
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git commit -m "First commit"
+
+[main (root-commit) dd678bf] First commit
+14 files changed, 1290 insertions(+)
+create mode 100644 .DS_Store
+create mode 100644 AddProducts.php
+create mode 100755 CreateSale.php
+create mode 100755 CreateSaleProcess.php
+create mode 100755 DBconnect.php
+create mode 100755 Menu.php
+create mode 100755 ReturnedSale.php
+create mode 100755 ReviewSale.php
+create mode 100755 SubmitSale.php
+create mode 100644 editing.php
+create mode 100755 images/HIFIVE5.png
+create mode 100755 images/Lianhua.png
+create mode 100755 images/gaviscon.png
+create mode 100644 productVIew.php
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git remote add origin https://github.com/ChanBormey10Mao/PHP_project1.git
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git remote -v
+origin https://github.com/ChanBormey10Mao/PHP_project1.git (fetch)
+origin https://github.com/ChanBormey10Mao/PHP_project1.git (push)
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git push -u origin sprint1-official
+error: src refspec sprint1-official does not match any
+error: failed to push some refs to 'https://github.com/ChanBormey10Mao/PHP_project1.git'
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git branch -a
+
+- main
+  chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git branch -a
+- main
+  chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git branch sprint1-official
+  chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git checkout sprint1-official
+  Switched to branch 'sprint1-official'
+  chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git checkout -b sprint1-official
+  fatal: A branch named 'sprint1-official' already exists.
+  chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git push -u origin sprint1-official
+  remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+  remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+  fatal: Authentication failed for 'https://github.com/ChanBormey10Mao/PHP_project1.git/'
+  chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git push -u origin sprint1-official
+  Enumerating objects: 17, done.
+  Counting objects: 100% (17/17), done.
+  Delta compression using up to 8 threads
+  Compressing objects: 100% (17/17), done.
+  Writing objects: 100% (17/17), 759.85 KiB | 24.51 MiB/s, done.
+  Total 17 (delta 4), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (4/4), done.
+  To https://github.com/ChanBormey10Mao/PHP_project1.git
+- [new branch] sprint1-official -> sprint1-official
+  Branch 'sprint1-official' set up to track remote branch 'sprint1-official' from 'origin'.
+  chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git init -b sprint1-official
+  warning: re-init: ignored --initial-branch=sprint1-official
+  Reinitialized existing Git repository in /Users/chanbormeymao/Desktop/Sprint1-Official/.git/
+  chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git add .
+  chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git commit -m "Second Commit-Mey"
+  [sprint1-official 6df00a9] Second Commit-Mey
+  1 file changed, 1 insertion(+), 1 deletion(-)
+  chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git push
+  Enumerating objects: 5, done.
+  Counting objects: 100% (5/5), done.
+  Delta compression using up to 8 threads
+  Compressing objects: 100% (3/3), done.
+  Writing objects: 100% (3/3), 320 bytes | 320.00 KiB/s, done.
+  Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+  remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+  To https://github.com/ChanBormey10Mao/PHP_project1.git
+  dd678bf..6df00a9 sprint1-official -> sprint1-official
+  chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git commit -m "Third Commit-Mey"
+  On branch sprint1-official
+  Your branch is up to date with 'origin/sprint1-official'.
+
+Changes not staged for commit:
+(use "git add/rm <file>..." to update what will be committed)
+(use "git restore <file>..." to discard changes in working directory)
+deleted: AddProducts.php
+deleted: CreateSale.php
+deleted: CreateSaleProcess.php
+deleted: DBconnect.php
+deleted: Menu.php
+deleted: ReturnedSale.php
+deleted: ReviewSale.php
+deleted: SubmitSale.php
+deleted: editing.php
+deleted: images/HIFIVE5.png
+deleted: images/Lianhua.png
+deleted: images/gaviscon.png
+deleted: productVIew.php
+
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+public/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git push  
+Everything up-to-date
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git commit -m "Third Commit-Mey"
+On branch sprint1-official
+Your branch is up to date with 'origin/sprint1-official'.
+
+Changes not staged for commit:
+(use "git add/rm <file>..." to update what will be committed)
+(use "git restore <file>..." to discard changes in working directory)
+deleted: AddProducts.php
+deleted: CreateSale.php
+deleted: CreateSaleProcess.php
+deleted: DBconnect.php
+deleted: Menu.php
+deleted: ReturnedSale.php
+deleted: ReviewSale.php
+deleted: SubmitSale.php
+deleted: editing.php
+deleted: images/HIFIVE5.png
+deleted: images/Lianhua.png
+deleted: images/gaviscon.png
+deleted: productVIew.php
+
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+public/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git push  
+Everything up-to-date
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git commit -m " Commit-Mey"  
+On branch sprint1-official
+Your branch is up to date with 'origin/sprint1-official'.
+
+Changes not staged for commit:
+(use "git add <file>..." to update what will be committed)
+(use "git restore <file>..." to discard changes in working directory)
+modified: .DS_Store
+
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+public/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git push  
+Everything up-to-date
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git config --global pack.windowMemory "100m"
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git config --global pack.packSizeLimit "100m"
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git commit -m "4th Commit-Mey"  
+On branch sprint1-official
+Your branch is up to date with 'origin/sprint1-official'.
+
+Changes not staged for commit:
+(use "git add <file>..." to update what will be committed)
+(use "git restore <file>..." to discard changes in working directory)
+modified: .DS_Store
+modified: Menu.php
+
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+public/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git commit -m "4th Commit-Mey"
+On branch sprint1-official
+Your branch is up to date with 'origin/sprint1-official'.
+
+Changes not staged for commit:
+(use "git add <file>..." to update what will be committed)
+(use "git restore <file>..." to discard changes in working directory)
+modified: .DS_Store
+modified: Menu.php
+
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+public/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git push  
+Everything up-to-date
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git commit -m "Commit-Mey"  
+On branch sprint1-official
+Your branch is up to date with 'origin/sprint1-official'.
+
+Changes not staged for commit:
+(use "git add <file>..." to update what will be committed)
+(use "git restore <file>..." to discard changes in working directory)
+modified: .DS_Store
+modified: Menu.php
+
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
+public/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git commit -m "Commit-Mey"
+On branch sprint1-official
+Your branch is up to date with 'origin/sprint1-official'.
+
+Changes not staged for commit:
+(use "git add <file>..." to update what will be committed)
+(use "git restore <file>..." to discard changes in working directory)
+modified: .DS_Store
+modified: Menu.php
+
+no changes added to commit (use "git add" and/or "git commit -a")
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git push  
+Everything up-to-date
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git add .
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git commit -m "Commit-Mey"
+[sprint1-official 4a87ffb] Commit-Mey
+2 files changed, 1 insertion(+), 1 deletion(-)
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official % git push  
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 397 bytes | 397.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/ChanBormey10Mao/PHP_project1.git
+6df00a9..4a87ffb sprint1-official -> sprint1-official
+chanbormeymao@Chans-MacBook-Pro Sprint1-Official %
