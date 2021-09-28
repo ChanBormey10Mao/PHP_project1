@@ -152,10 +152,10 @@ include_once 'DBconnect.php';
 			echo "<td>";
 
 			//Click to update
-			echo "<a href='editing.php?product_ID=" . $row['product_ID'] . "' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil edit_sign'></span></a>";
+			echo "<a href='editing_Product.php?product_ID=" . $row['product_ID'] . "' title='Update Record' data-toggle='tooltip'><span class='glyphicon glyphicon-pencil edit_sign'></span></a>";
 			echo "<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>";
 			//Click to delete
-			echo "<a href='delete.php?product_ID=" . $row['product_ID'] . "' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash delete_sign'></span></a>";
+			// echo "<a href='delete.php?product_ID=" . $row['product_ID'] . "' title='Delete Record' data-toggle='tooltip'><span class='glyphicon glyphicon-trash delete_sign'></span></a>";
 			echo "</td>";
 			echo "</tr>\n";
 		}
