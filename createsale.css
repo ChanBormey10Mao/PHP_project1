@@ -31,6 +31,7 @@ li a {
 
 .button a {
   color: white;
+  text-decoration: none;
 }
 
 li a:hover:not(.active) {
