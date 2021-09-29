@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP-Create New Sale</title>
+    <link rel="stylesheet" href="createsale.css">
 </head>
 
 <body>
