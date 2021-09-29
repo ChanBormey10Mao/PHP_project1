@@ -1,5 +1,5 @@
 <?php
-include_once("setting.php");
+include_once("DBconnect.php");
 // Create database connection
 //$db = mysqli_connect("localhost", "u596909339_MSG", "PHPmsg#12345", "u596909339_PHP_DB");
 //$db = mysqli_connect("localhost", "root", "", "msp");
