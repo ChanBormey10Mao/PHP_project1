@@ -25,9 +25,9 @@
                 <button class="Btn" type="submit" name="productSearch">Search</button>
             </span>
             <div>
-                <button class="Btn"><a href="ReviewSale.php">Review Sales</a></button>
+                <input type="button" class="Btn"><a href="ReviewSale.php">Review Sales</a>
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <button class="Btn"><a href="Menu.php">Back to Menu</a></button>
+                <input type="button" class="Btn"><a href="Menu.php">Back to Menu</a>
             </div>
 
         </form>
