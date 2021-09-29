@@ -22,12 +22,12 @@
                 <input type="text" name="product" placeholder="product">
             </span>
             <span>
-                <button type="submit" name="productSearch">Search</button>
+                <button class="Btn" type="submit" name="productSearch">Search</button>
             </span>
             <div>
-                <button><a href="ReviewSale.php">Review Sales</a></button>
+                <button class="Btn"><a href="ReviewSale.php">Review Sales</a></button>
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <button><a href="Menu.php">Back to Menu</a></button>
+                <button class="Btn"><a href="Menu.php">Back to Menu</a></button>
             </div>
 
 
