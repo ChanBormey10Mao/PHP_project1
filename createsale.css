@@ -11,7 +11,8 @@
   cursor: pointer;
   text-decoration: none;
 }
-input[type=text], select {
+input[type="text"],
+select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -20,7 +21,7 @@ input[type=text], select {
   border-radius: 4px;
   box-sizing: border-box;
 }
-    ul {
+ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -45,5 +46,5 @@ li a:hover:not(.active) {
 }
 
 .active {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
 }
