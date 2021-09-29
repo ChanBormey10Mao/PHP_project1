@@ -9,18 +9,7 @@
 </head>
 
 <body>
-    <form method="post" action="#">
 
-        <fieldset>
-            <legend>
-                <h3>SEARCH ENGINE</h3>
-            </legend>
-            <p>NOTE: Enter the product name to search in our database</p>
-            <label for="input">Product name:</label>
-            <input type="text" name="input" id="input"><br><br>
-            <p> <input type="submit" value="Search" name="seachbar" /></p>
-        </fieldset>
-    </form>
     <?php
     //require_once("setting.php");//connected the database
     //check if the connection is successful
