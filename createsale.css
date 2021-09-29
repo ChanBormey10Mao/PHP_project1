@@ -29,6 +29,10 @@ li a {
   text-decoration: none;
 }
 
+.button a {
+  color: white;
+}
+
 li a:hover:not(.active) {
   background-color: #111;
 }
