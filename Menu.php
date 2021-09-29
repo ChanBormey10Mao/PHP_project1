@@ -14,7 +14,7 @@
         <div class="Sale_Related">
             <ul>
                 <li><button><a href="CreateSale.php">Create New Sale</a></button></li>
-                <li><button><a href="ReviewSale.php"></a>View Sales</button></li>
+                <li><button><a href="ReviewSale.php">View Sales</a></button></li>
                 <!-- <li><button><a href="ReturnedSale.php"></a>Return Product</button></li> -->
             </ul>
         </div>
