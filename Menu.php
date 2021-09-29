@@ -21,7 +21,7 @@
         <div class="Product_Related">
             <ul>
                 <li><button><a href="AddProducts.php">Create New Product</a></button></li>
-                <li><button><a href="Product_View.php"></a>View All Product</button></li>
+                <li><button><a href="Product_View.php">View All Product</a></button></li>
                 <!-- <li><button><a href="#"></a>Hide a product</button></li> -->
             </ul>
         </div>
