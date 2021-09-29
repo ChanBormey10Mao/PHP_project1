@@ -1,4 +1,3 @@
-</html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,18 +10,25 @@
 
 <body>
     <div class="box-area">
-        <header>
+        <center>
+            <header>
 
-            <nav>
-                <a href="CreateSale.php">Create New Sale</a>
-                <a href="ReviewSale.php">View Sales</a>
-                <a href="ReturnedSale.php">Return Product</a>
-                <a href="AddProducts.php">Create New Product</a>
-                <a href="Product_View.php">View All Product</a>
-                <a href="#">Hide a product</a>
-                <a href="#">Stock Managment</a </nav>
+                <nav>
+                    <div class="sale">
+                        <a href="CreateSale.php">Create New Sale</a>
+                        <a href="ReviewSale.php">View Sales</a>
+                        <a href="ReturnedSale.php">Return Product</a>
+                    </div>
+                    <div class="prod">
+                        <a href="AddProducts.php">Create New Product</a>
+                        <a href="Product_View.php">View All Product</a>
+                        <a href="editing_Product.php">Hide a product</a>
+                    </div>
+                    <a href="#">Stock Managment</a>
+                </nav>
     </div>
     </header>
+    </center>
     <div class="banner-area">
 
     </div>
