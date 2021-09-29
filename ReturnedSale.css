@@ -1,5 +1,6 @@
-
-table, th, td {
+table,
+th,
+td {
   border: 1px solid black;
 }
 
@@ -28,7 +29,7 @@ li a:hover:not(.active) {
 }
 
 .active {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
 }
 
 .button {
@@ -41,12 +42,11 @@ li a:hover:not(.active) {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-
 }
 
-input[type=submit] {
+input[type="submit"] {
   width: 50%;
-  background-color:#333;
+  background-color: #333;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -55,7 +55,8 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=text], select {
+input[type="text"],
+select {
   width: 30%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -66,13 +67,12 @@ input[type=text], select {
 }
 
 a {
-    color:white;
-    text-decoration:none;
+  color: white;
+  text-decoration: none;
 }
 
-input[type="date"]{
-    background-color: #333;
-    color: white;
-    padding: 15px;
-
+input[type="date"] {
+  background-color: #333;
+  color: white;
+  padding: 15px;
 }

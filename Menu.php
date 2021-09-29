@@ -3,35 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
-    <link rel="stylesheet" href="menu.css">
+
+    <link href="menu.css" rel="stylesheet">
 </head>
 
 <body>
-    <div>
-        <div class="Sale_Related">
-            <ul>
-                <li><button><a href="CreateSale.php">Create New Sale</a></button></li>
-                <li><button><a href="ReviewSale.php">View Sales</a></button></li>
-                <!-- <li><button><a href="ReturnedSale.php"></a>Return Product</button></li> -->
-            </ul>
+    <div class="box-area">
+        <header>
+
+            <nav>
+                <a href="CreateSale.php">Create New Sale</a>
+                <a href="ReviewSale.php">View Sales</a>
+                <a href="ReturnedSale.php">Return Product</a>
+                <a href="#">Create New Product</a>
+                <a href="#">View All Product</a>
+                <a href="#">Hide a product</a>
+                <a href="#">Stock Managment</a </nav>
+    </div>
+    </header>
+    <div class="banner-area">
+
+    </div>
+    <div class="content-area">
+        <div class="wrapper">
+            <h2>About Us</h2>
+            <p>Information</p>
         </div>
-        <div class="Product_Related">
-            <ul>
-                <li><button><a href="AddProducts.php">Create New Product</a></button></li>
-                <li><button><a href="Product_View.php">View All Product</a></button></li>
-                <!-- <li><button><a href="#"></a>Hide a product</button></li> -->
-            </ul>
-        </div>
-        <!-- <div class="Inventory_Related">
-            <ul>
-                <li><button><a href="#"></a>Stock Managment</button></li>
-                <li><button><a href="#"></a>Blah</button></li>
-                <li><button><a href="#"></a>Blah</button></li>
-            </ul>
-        </div> -->
     </div>
 </body>
 

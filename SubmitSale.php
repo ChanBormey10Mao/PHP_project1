@@ -10,6 +10,12 @@
 </head>
 
 <body>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li style="float:right"><a class="active" href="#about">About</a></li>
+    </ul>
     <?php require_once("DBconnect.php"); ?>
     <div>Sale ID: <?php echo Get_Last_SaleID($conn); ?></div>
     <?php
@@ -74,11 +80,12 @@
 
         ?>
         <form action="CreateSaleProcess.php?action=deletepreviousrecord" method="GET" form="deletepreviousrecord">
-            <input type="submit" name="deletepreviousrecord" value="Confirming">
+            <input type="submit" name="deletepreviousrecord" value="Confirm">
             <div>
-                <button><a href="ReviewSale.php">Review Sales</a></button>
+                <br>
+                <button class="button"><a href="ReviewSale.php">Review Sales</a></button>
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <button><a href="Menu.php">Back to Menu</a></button>
+                <button class="button"><a href="Menu.php">Back to Menu</a></button>
             </div>
         </form>
 

@@ -10,13 +10,19 @@
 </head>
 
 <body>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li style="float:right"><a class="active" href="#about">About</a></li>
+    </ul>
     <form action="ReviewSale.php" method="POST" name="ReviewSale">
         <div>
             <span>
                 <input type="text" name="sale_ID" placeholder="Sale ID">
             </span>
             <span>
-                <button type="submit" name="SaleIDSearch">Search</button>
+                <button type="submit" name="SaleIDSearch" class="button">Search</button>
             </span>
         </div>
         <div>
@@ -24,7 +30,7 @@
                 <input type="date" name="date" placeholder="Date">
             </span>
             <span>
-                <button type="submit" name="DateSearch">Search</button>
+                <button type="submit" name="DateSearch" class="button">Search</button>
             </span>
         </div>
     </form>
@@ -40,6 +46,7 @@
             <td>Product</td>
             <td>Total</td>
             <td>Edit</td>
+
         </tr>
         <?php
         if (isset($_POST["SaleIDSearch"])) {
@@ -74,7 +81,7 @@
 
 
     </table>
-    <div><button><a href="Menu.php">Back to Menu</a></button></div>
+    <div><button class=button><a href="Menu.php">Back to Menu</a></button></div>
 
 
     <?php
@@ -157,7 +164,7 @@
                 </table>
             </td>
             <td><?php echo $arrSale[0]["total"]; ?></td>
-            <td><button><a href="ReturnedSale.php?action1=edit&idEdit=<?php echo $arrSale[0]["sale_ID"]; ?>" value="Edit">Edit</a></button></td>
+            <td><button class="button"><a href="ReturnedSale.php?action1=edit&idEdit=<?php echo $arrSale[0]["sale_ID"]; ?>" value="Edit">Edit</a></button></td>
         </tr>
 
         <?php
