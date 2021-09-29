@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP-Create New Sale</title>
     <link rel="stylesheet" href="createsale.css">
-    <link rel="stylesheet" href="CreateSaleProcess.css">
+    <!-- <link rel="stylesheet" href="CreateSaleProcess.css"> -->
 </head>
 
 <body>
