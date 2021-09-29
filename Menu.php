@@ -25,13 +25,13 @@
                 <!-- <li><button><a href="#"></a>Hide a product</button></li> -->
             </ul>
         </div>
-        <div class="Inventory_Related">
+        <!-- <div class="Inventory_Related">
             <ul>
                 <li><button><a href="#"></a>Stock Managment</button></li>
                 <li><button><a href="#"></a>Blah</button></li>
-                <!-- <li><button><a href="#"></a>Blah</button></li> -->
+                <li><button><a href="#"></a>Blah</button></li>
             </ul>
-        </div>
+        </div> -->
     </div>
 </body>
 
