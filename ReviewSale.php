@@ -5,16 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Sale</title>
     <link rel="stylesheet" href="ReviewSale.css">
+    <title>Review Sale</title>
+
 </head>
 
 <body>
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li style="float:right"><a class="active" href="#about">About</a></li>
+        <li><a href="Menu.php">Menu</a></li>
+
     </ul>
     <form action="ReviewSale.php" method="POST" name="ReviewSale">
         <div>
