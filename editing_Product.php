@@ -231,7 +231,7 @@ if (!$conn) {
 
     <!-- <li style="float:right"><a class="active" href="#about">About</a></li> -->
   </ul>
-  <form method="post" action="Product_View.php">
+  <form method="post" action="#">
     <fieldset>
       <legend>
         <h3>CHANGE DATA</h3>
