@@ -11,10 +11,11 @@
 
 <body>
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
+
+        <li><a href="Menu.php">Home</a></li>
+        <!-- <li><a href="#news">News</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li style="float:right"><a class="active" href="#about">About</a></li>
+        <li style="float:right"><a class="active" href="#about">About</a></li> -->
     </ul>
     <?php require_once("DBconnect.php"); ?>
     <div>Sale ID: <?php echo Get_Last_SaleID($conn); ?></div>
