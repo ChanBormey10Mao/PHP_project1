@@ -147,11 +147,11 @@
             <td><?php echo $arrSale[0]["sale_time"]; ?></td>
             <td>
                 <table style="width:80%;">
-                    <tr>
+                    <!-- <tr>
                         <td>Picture</td>
                         <td>Name</td>
                         <td>Quantity</td>
-                    </tr>
+                    </tr> -->
                     <?php foreach ($arrProduct as $row) { ?>
                         <tr>
                             <td><img src="images/<?php echo $row["images"]; ?>" alt="Product Picture"></td>

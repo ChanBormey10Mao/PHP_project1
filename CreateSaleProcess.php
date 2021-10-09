@@ -144,7 +144,7 @@
                 }
             }
             date_default_timezone_set("Australia/Victoria");
-            $date = date("d-m-Y");
+            $date = date("Y-m-d");
             $timeToday = date("h:i a");
 
 
