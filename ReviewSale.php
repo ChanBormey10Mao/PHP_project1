@@ -63,7 +63,7 @@
                 include("DBconnect.php");
                 $date = trim($_POST["date"]);
                 $date = date_create($date);
-                $date = date_format($date, "d-m-Y");
+                $date = date_format($date, "Y-m-d");
                 $saleID_dateSearch = RetriveDataByDate($date, $conn);
 
                 for ($i = 0; $i < count($saleID_dateSearch); $i++) {
