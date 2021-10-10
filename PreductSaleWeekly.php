@@ -10,7 +10,7 @@
 
 <body>
     <?php include("DBconnect.php"); ?>
-    <?php RetrieveDataDB(($conn)) ?>
+    <?php print_r(RetrieveDataDB(($conn))) ?>
     <?php
     function RetrieveDataDB($conn)
     {
@@ -29,8 +29,8 @@
         if ($result->num_rows > 0) {
 
             while ($row = $result->fetch_assoc()) {
-                print_r($row);
-                echo  "<br>";
+                // print_r($row);
+                // echo  "<br>";
                 $info_arr_new[] = array(
                     "product_ID" => @$row["product_ID"],
                     "product_name" => @$row["product_name"],
@@ -45,8 +45,8 @@
             echo "0 results UpdateInfo" . "<hr>";
             return null;
         }
-        echo "***************************" . "<br>";
-        print_r($info_arr);
+        // echo "***************************" . "<br>";
+        // print_r($info_arr);
         return $info_arr;
     }
     ?>
