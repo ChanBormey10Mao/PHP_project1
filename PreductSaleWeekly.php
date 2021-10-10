@@ -14,7 +14,7 @@
     <?php
     function RetrieveDataDB($conn)
     {
-        $query = "SELECT sale_product.product_ID, product.product_name, sale.sale_date,ROUND(sale_product.sale_PQuantity * product.Product_price,2) AS Price, WEEK(sale.sale_date) as Week_No 
+        $query = "SELECT sale_product.product_ID, product.product_name, sale_product.sale_PQuantity,sale.sale_date,ROUND(sale_product.sale_PQuantity * product.Product_price,2) AS Price, WEEK(sale.sale_date) as Week_No 
     FROM sale  
     INNER JOIN sale_product
     ON sale.sale_ID = sale_product.sale_ID
@@ -32,7 +32,7 @@
                     "sale_PQuantity" => @$row["sale_PQuantity"],
                     "Price_Per_Product" => @$row["Price"],
                     "Week_No" => @$row["Week_No"],
-                    "sale_date" => @$row["sale_date"],
+                    "sale_date" => @$row["sale_date"]
                 );
                 $info_arr = $info_arr + $info_arr_new;
             }
