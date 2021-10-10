@@ -25,7 +25,7 @@
         $info_arr = array();
 
         $result = mysqli_query($conn, $query);
-        print_r($result);
+        print_r($result) . "\n";
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $info_arr_new = array(
