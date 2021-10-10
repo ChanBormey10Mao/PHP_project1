@@ -10,7 +10,7 @@
 
 <body>
     <?php include("DBconnect.php"); ?>
-
+    <?php RetrieveDataDB(($conn)) ?>
     <?php
     function RetrieveDataDB($conn)
     {
