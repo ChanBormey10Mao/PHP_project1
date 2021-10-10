@@ -45,6 +45,7 @@
             echo "0 results UpdateInfo" . "<hr>";
             return null;
         }
+        echo "::::::::::::::::::::::::";
         print_r($info_arr);
         return $info_arr;
     }
