@@ -62,6 +62,7 @@
             <?php
                     $total = $total + (number_format($values["item_quantity"] * $values["item_price"], 2));
                     echo InsertSale_ProductTable($conn, $values["item_id"], $sale_ID, $values["item_quantity"]) . "<br>";
+                    UpdateInventory($conn, $values["item_id"], $values["item_quantity"];)
                 }
             }
             ?>
@@ -126,6 +127,16 @@
     //for ching
     function UpdateInventory($conn, $product_ID, $quantity)
     {
+        //update in inventory table when sale has submitted
+       $query="update Inventory set Quantity = Quantity -'$quantity'  where product_ID='$product_ID';"
+       $result = mysqli_query($conn, $query);
+       if (!$result) {
+        echo "<p class=\"wrong\">Something is wrong with ", $query, "</p>";
+       else
+       {
+        echo "<p class=\"wrong\">Data has successfully updated" "</p>";
+       }
+    }
     }
     function InsertSale_ProductTable($conn, $product_ID, $sale_ID, $sale_PQuantity)
     {
