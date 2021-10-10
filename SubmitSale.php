@@ -49,8 +49,6 @@
                 // print_r($_SESSION["shopping_cart"]);
                 foreach ($_SESSION["shopping_cart"] as $keys => $values) {
             ?>
-
-
                     <tr>
                         <td> <?php echo $values["item_name"]; ?> </td>
                         <td> <?php echo $values["item_quantity"]; ?> </td>
@@ -125,7 +123,10 @@
         $print_data = mysqli_fetch_row($result);
         return ($print_data[0]);
     }
-
+    //for ching
+    function UpdateInventory($conn, $product_ID, $quantity)
+    {
+    }
     function InsertSale_ProductTable($conn, $product_ID, $sale_ID, $sale_PQuantity)
     {
         $query = "INSERT INTO sale_product (product_ID, sale_ID, sale_PQuantity)
