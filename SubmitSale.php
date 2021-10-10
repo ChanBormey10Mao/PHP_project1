@@ -128,16 +128,17 @@
     function UpdateInventory($conn, $product_ID, $quantity)
     {
         //update in inventory table when sale has submitted
-       $query="update Inventory set Quantity = Quantity -'$quantity'  where product_ID='$product_ID';"
+       $query="update Inventory set Quantity = Quantity -'$quantity'  where product_ID='$product_ID';";
        $result = mysqli_query($conn, $query);
        if (!$result) {
-        echo "<p class=\"wrong\">Something is wrong with ", $query, "</p>";
+        echo "<p class=\"wrong\">Something is wrong with ". mysqli_error($conn). "</p>";
+       }
        else
        {
-        echo "<p class=\"wrong\">Data has successfully updated" "</p>";
+        echo "<p class=\"wrong\">Data has successfully updated></p>";
        }
     }
-    }
+    
     function InsertSale_ProductTable($conn, $product_ID, $sale_ID, $sale_PQuantity)
     {
         $query = "INSERT INTO sale_product (product_ID, sale_ID, sale_PQuantity)
