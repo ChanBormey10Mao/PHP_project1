@@ -130,8 +130,10 @@
         //update in inventory table when sale has submitted
        $query="update Inventory set Quantity = Quantity -'$quantity'  where product_ID='$product_ID';"
        $result = mysqli_query($conn, $query);
-       if (!$result) {
+       if (!$result) 
+       {
         echo "<p class=\"wrong\">Something is wrong with ", $query, "</p>";
+       }
        else
        {
         echo "<p class=\"wrong\">Data has successfully updated" "</p>";
