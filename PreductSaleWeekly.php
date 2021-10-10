@@ -25,9 +25,11 @@
         $info_arr = array();
 
         $result = mysqli_query($conn, $query);
-        print_r($result) . "<br>";
+
         if ($result->num_rows > 0) {
+
             while ($row = $result->fetch_assoc()) {
+                print_r($row) . "<br>";
                 $info_arr_new = array(
                     "product_ID" => @$row["product_ID"],
                     "product_name" => @$row["product_name"],
