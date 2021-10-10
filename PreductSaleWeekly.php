@@ -29,7 +29,8 @@
         if ($result->num_rows > 0) {
 
             while ($row = $result->fetch_assoc()) {
-                print_r($row) . "<br>";
+                print_r($row);
+                echo  "<br>";
                 $info_arr_new = array(
                     "product_ID" => @$row["product_ID"],
                     "product_name" => @$row["product_name"],
