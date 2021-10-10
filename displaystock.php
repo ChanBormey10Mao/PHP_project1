@@ -220,8 +220,8 @@ include_once 'DBconnect.php';
 			"<th scope=\"col\">product_name</th>\n" .
 			"<th scope=\"col\">product_desc</th>\n" .
 			"<th scope=\"col\">Product_price</th>\n" .
-		    "<th scope=\"col\">Quantity</th>\n" .
-		    "<th scope=\"col\">images</th>\n" .
+			"<th scope=\"col\">Quantity</th>\n" .
+			"<th scope=\"col\">images</th>\n" .
 			"</tr>\n";
 
 		//retrieved current report pointed by the result pointer
@@ -234,7 +234,7 @@ include_once 'DBconnect.php';
 			echo "<td align=center>", $row["Product_price"], "($)</td>\n";
 			echo "<td align=center>", $row["Quantity"], "</td>\n";
 			echo "<td>", "<img width=\"200\" src='images/" . $row['images'] . "' >", "</td>\n";
-			
+
 			echo "</tr>\n";
 		}
 		echo "</table>\n";
@@ -247,11 +247,7 @@ include_once 'DBconnect.php';
 
 	?>
 	<br>
-	<footer>
-		Copyright 2021<br>
-		Author:group 13<br>
-		Email:102579094@student.swin.edu.au
-	</footer>
+
 	</center>
 </body>
 

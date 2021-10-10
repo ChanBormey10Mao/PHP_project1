@@ -13,3 +13,9 @@ FROM sale  as s
 INNER JOIN sale_product as ps
 ON s.product_ID = ps.product_ID
 GROUP BY WEEK(sale_date), ps.product_ID;
+
+SELECT sale_product.product_ID, SUM(sale.sale_price), WEEK(sale.sale_date) as Week_No 
+FROM sale  
+INNER JOIN sale_product
+ON sale.sale_ID = sale_product.sale_ID
+GROUP BY sale_product.product_ID, WEEK(sale.sale_date) 
