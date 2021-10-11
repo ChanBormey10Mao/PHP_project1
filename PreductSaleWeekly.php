@@ -15,7 +15,7 @@
     <?php $_SESSION["AllSale"] = RetrieveDataDB(($conn)) ?>
     <table style="width: 100%;">
         <tr>
-            <!-- <td>Product ID</td> -->
+            <td>Product ID</td>
             <td>Product Name</td>
             <td>Sale Date</td>
             <td>Week No</td>
@@ -26,6 +26,7 @@
         foreach ($_SESSION["AllSale"] as $row) {
         ?>
             <tr>
+                <td><?php echo $row["product_ID"]; ?></td>
                 <td><?php echo $row["product_name"]; ?></td>
                 <td><?php echo $row["sale_date"]; ?></td>
                 <td><?php echo $row["Week_No"]; ?></td>
