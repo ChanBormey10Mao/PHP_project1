@@ -131,15 +131,15 @@
         $query = "update Inventory set Quantity = Quantity -'$quantity'  where product_ID='$product_ID';";
         $result = mysqli_query($conn, $query);
 
-        if (!$result) {
-            echo "<p class=\"wrong\">Something is wrong with " . mysqli_error($conn) . "</p>";
+        // if (!$result) {
+        //     echo "<p class=\"wrong\">Something is wrong with " . mysqli_error($conn) . "</p>";
 
-            if (!$result) {
-                echo "<p class=\"wrong\">Something is wrong with ", $query, "</p>";
-            } else {
-                echo "<p class=\"wrong\">Data has successfully updated></p>";
-            }
-        }
+        //     if (!$result) {
+        //         echo "<p class=\"wrong\">Something is wrong with ", $query, "</p>";
+        //     } else {
+        //         echo "<p class=\"wrong\">Data has successfully updated></p>";
+        //     }
+        // }
     }
 
     function InsertSale_ProductTable($conn, $product_ID, $sale_ID, $sale_PQuantity)

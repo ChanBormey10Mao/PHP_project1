@@ -9,8 +9,34 @@
 </head>
 
 <body>
-    <?php include("DBconnect.php"); ?>
-    <?php print_r(RetrieveDataDB(($conn))) ?>
+    <?php include("DBconnect.php");
+    session_start();
+    ?>
+    <?php $_SESSION["AllSale"] = RetrieveDataDB(($conn)) ?>
+    <table style="width: 100%;">
+        <tr>
+            <!-- <td>Product ID</td> -->
+            <td>Product Name</td>
+            <td>Sale Date</td>
+            <td>Week No</td>
+            <td>Sale Quantity</td>
+            <td>Price</td>
+        </tr>
+        <?php
+        foreach ($_SESSION["AllSale"] as $row) {
+        ?>
+            <tr>
+                <td><?php echo $row["product_name"]; ?></td>
+                <td><?php echo $row["sale_date"]; ?></td>
+                <td><?php echo $row["Week_No"]; ?></td>
+                <td><?php echo $row["sale_PQuantity"]; ?></td>
+                <td><?php echo $row["Price_Per_Product"]; ?></td>
+            </tr>
+        <?php
+        }
+        ?>
+    </table>
+
     <?php
     function RetrieveDataDB($conn)
     {
@@ -21,7 +47,7 @@
     INNER JOIN product
     ON sale_product.product_ID = product.product_ID
     GROUP BY sale_product.product_ID
-    ORDER BY WEEK(sale.sale_date);";
+    ORDER BY WEEK(sale.sale_date) DESC;";
         $info_arr = array();
 
         $result = mysqli_query($conn, $query);
