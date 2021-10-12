@@ -49,8 +49,6 @@
                 // print_r($_SESSION["shopping_cart"]);
                 foreach ($_SESSION["shopping_cart"] as $keys => $values) {
             ?>
-
-
                     <tr>
                         <td> <?php echo $values["item_name"]; ?> </td>
                         <td> <?php echo $values["item_quantity"]; ?> </td>
@@ -64,6 +62,7 @@
             <?php
                     $total = $total + (number_format($values["item_quantity"] * $values["item_price"], 2));
                     echo InsertSale_ProductTable($conn, $values["item_id"], $sale_ID, $values["item_quantity"]) . "<br>";
+                    UpdateInventory($conn, $values["item_id"], $values["item_quantity"]);
                 }
             }
             ?>
@@ -124,6 +123,23 @@
         $result = mysqli_query($conn, $query);
         $print_data = mysqli_fetch_row($result);
         return ($print_data[0]);
+    }
+    //for ching
+    function UpdateInventory($conn, $product_ID, $quantity)
+    {
+        //update in inventory table when sale has submitted
+        $query = "update Inventory set Quantity = Quantity -'$quantity'  where product_ID='$product_ID';";
+        $result = mysqli_query($conn, $query);
+
+        // if (!$result) {
+        //     echo "<p class=\"wrong\">Something is wrong with " . mysqli_error($conn) . "</p>";
+
+        //     if (!$result) {
+        //         echo "<p class=\"wrong\">Something is wrong with ", $query, "</p>";
+        //     } else {
+        //         echo "<p class=\"wrong\">Data has successfully updated></p>";
+        //     }
+        // }
     }
 
     function InsertSale_ProductTable($conn, $product_ID, $sale_ID, $sale_PQuantity)

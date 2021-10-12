@@ -63,7 +63,7 @@
                 include("DBconnect.php");
                 $date = trim($_POST["date"]);
                 $date = date_create($date);
-                $date = date_format($date, "d-m-Y");
+                $date = date_format($date, "Y-m-d");
                 $saleID_dateSearch = RetriveDataByDate($date, $conn);
 
                 for ($i = 0; $i < count($saleID_dateSearch); $i++) {
@@ -147,11 +147,11 @@
             <td><?php echo $arrSale[0]["sale_time"]; ?></td>
             <td>
                 <table style="width:80%;">
-                    <tr>
+                    <!-- <tr>
                         <td>Picture</td>
                         <td>Name</td>
                         <td>Quantity</td>
-                    </tr>
+                    </tr> -->
                     <?php foreach ($arrProduct as $row) { ?>
                         <tr>
                             <td><img src="images/<?php echo $row["images"]; ?>" alt="Product Picture"></td>
