@@ -46,8 +46,8 @@
     function RetrieveDataDB($conn)
     {
         $query = "SELECT sale_product.product_ID, product.product_name, sale_product.sale_PQuantity,sale.sale_date,ROUND(sale_product.sale_PQuantity * product.Product_price,3) AS Price, 
-        DATE_ADD(sale.sale_date, INTERVAL(0-DAYOFWEEK(sale.sale_date)) DAY) as start_date,
-        DATE_ADD(sale.sale_date, INTERVAL(6-DAYOFWEEK(sale.sale_date)) DAY) as end_date, 
+        DATE_ADD(sale.sale_date, INTERVAL(2-DAYOFWEEK(sale.sale_date)) DAY) as start_date,
+        DATE_ADD(sale.sale_date, INTERVAL(8-DAYOFWEEK(sale.sale_date)) DAY) as end_date, 
         WEEK(sale.sale_date,3) as Week_No 
         FROM sale  
         INNER JOIN sale_product
