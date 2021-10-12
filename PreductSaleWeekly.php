@@ -41,13 +41,13 @@
     <?php
     function RetrieveDataDB($conn)
     {
-        $query = "SELECT sale_product.product_ID, product.product_name, sale_product.sale_PQuantity,sale.sale_date,ROUND(sale_product.sale_PQuantity * product.Product_price,2) AS Price, WEEK(sale.sale_date,1) as Week_No 
+        $query = "SELECT sale_product.product_ID, product.product_name, sale_product.sale_PQuantity,sale.sale_date,ROUND(sale_product.sale_PQuantity * product.Product_price,2) AS Price, WEEK(sale.sale_date,3) as Week_No 
         FROM sale  
         INNER JOIN sale_product
         ON sale.sale_ID = sale_product.sale_ID
         INNER JOIN product
         ON sale_product.product_ID = product.product_ID
-        GROUP BY sale_product.product_ID,WEEK(sale.sale_date)
+        GROUP BY sale_product.product_ID,WEEK(sale.sale_date,3)
         ORDER BY WEEK(sale.sale_date) DESC;";
         $info_arr = array();
 
