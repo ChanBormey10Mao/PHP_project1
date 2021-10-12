@@ -25,7 +25,7 @@
             echo "<p>\$past3weekdate is $past3weekdate </p>";
             echo "today is" . date('Y-m-d') . "<br>";
             for ($i = 0; $i < count($_SESSION["SalePredict"]); $i++) {
-                if (date('Y-m-d') < $past3weekdate) {
+                if (date('Y-m-d') > $past3weekdate) {
                     $Weekqty3 = $Weekqty3 +  $_SESSION["SalePredict"][$i]["sale_PQuantity"];
                     $WeekPricePerRow3 = $WeekPricePerRow3 +  $_SESSION["SalePredict"][$i]["Price_Per_Product"];
                 }
