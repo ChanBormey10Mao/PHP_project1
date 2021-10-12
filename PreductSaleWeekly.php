@@ -46,8 +46,8 @@
     function RetrieveDataDB($conn)
     {
         $query = "SELECT sale_product.product_ID, product.product_name, sale_product.sale_PQuantity,sale.sale_date,ROUND(sale_product.sale_PQuantity * product.Product_price,3) AS Price, 
-        DATE_ADD(sale.sale_date, INTERVAL(-DAYOFWEEK(sale.sale_date)) DAY) as start_date,
-        DATE_ADD(sale.sale_date, INTERVAL(6-DAYOFWEEK(sale.sale_date)) DAY) as end_date, 
+        -- DATE_ADD(sale.sale_date, INTERVAL(-DAYOFWEEK(sale.sale_date)) DAY) as start_date,
+        DATE_ADD(sale.sale_date, INTERVAL(-DAYOFWEEK(sale.sale_date)) DAY) as end_date, 
         WEEK(sale.sale_date,3) as Week_No 
         FROM sale  
         INNER JOIN sale_product
@@ -65,6 +65,7 @@
             while ($row = $result->fetch_assoc()) {
                 // print_r($row);
                 // echo  "<br>";
+                $row["start_date"] = date($row["sale_date"], strtotime("this week"));
                 $info_arr_new[] = array(
                     "product_ID" => @$row["product_ID"],
                     "product_name" => @$row["product_name"],
