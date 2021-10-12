@@ -55,7 +55,7 @@
         INNER JOIN product
         ON sale_product.product_ID = product.product_ID
         GROUP BY sale_product.product_ID,WEEK(sale.sale_date,3)
-        ORDER BY WEEK(sale.sale_date) DESC;";
+        ORDER BY WEEK(sale.sale_date,3) DESC;";
         $info_arr = array();
 
         $result = mysqli_query($conn, $query);
