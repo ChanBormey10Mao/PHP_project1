@@ -21,30 +21,33 @@
         if (isset($_POST["productID"])) {
             $productIDSearch = $_POST["productID"];
             $_SESSION["SalePredict"] = SearchProductID($conn, $productIDSearch);
-            for ($i = 0; $i <= 2; $i++) {
-                $Weekqty3 = $Weekqty3 +  $_SESSION["SalePredict"][$i]["sale_PQuantity"];
-                $WeekPricePerRow3 = $WeekPricePerRow3 +  $_SESSION["SalePredict"][$i]["Price_Per_Product"];
+            for ($i = 0; $i < count($_SESSION["SalePredict"]); $i++) {
+                $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
+                if (date('Y-m-d') <= $past3weekdate) {
+                    $Weekqty3 = $Weekqty3 +  $_SESSION["SalePredict"][$i]["sale_PQuantity"];
+                    $WeekPricePerRow3 = $WeekPricePerRow3 +  $_SESSION["SalePredict"][$i]["Price_Per_Product"];
+                }
             }
             $_SESSION["avg_qty_productID"] =  $Weekqty3 / 3;
             $_SESSION["price_avg_productID"] = $WeekPricePerRow3 / 3;
         }
         if (isset($_POST["productName"])) {
             $productNameSearch = $_POST["productName"];
-        }
-        if (isset($_POST["date"])) {
-            $dateSearch = $_POST["date"];
-        }
-        if (isset($_POST["productID"]) || isset($_POST["productName"]) || isset($_POST["date"])) {
+            $_SESSION["SalePredict"] = SearchByProductName($conn, $productNameSearch);
         }
     }
     ?>
     <form action="PredictSaleWeekly.php" method="POST">
-        <label for="productID">Product ID</label>
-        <input type="text" name="productID">
-        <label for="productName">Product Name</label>
-        <input type="text" name="productName">
-        <label for="date">Date</label>
-        <input type="text" name="date">
+        <section>
+            <label for="productID">Product ID</label>
+            <input type="text" name="productID">
+        </section>
+        <section>
+            <label for="productName">Product Name</label>
+            <input type="text" name="productName">
+        </section>
+        <!-- <label for="date">Date</label>
+        <input type="text" name="date"> -->
         <input type="submit" name="submitSearch" value="View Prediction">
     </form>
 
@@ -82,6 +85,49 @@
     </div>
 
     <?php
+    function SearchByProductName($conn, $product_name)
+    {
+        $query = "SELECT sale_product.product_ID, product.product_name, sale_product.sale_PQuantity,sale.sale_date,ROUND(sale_product.sale_PQuantity * product.Product_price,2) AS Price,        
+        WEEK(sale.sale_date,3) as Week_No 
+        FROM sale  
+        INNER JOIN sale_product
+        ON sale.sale_ID = sale_product.sale_ID
+        INNER JOIN product
+        ON sale_product.product_ID = product.product_ID
+        WHERE product.product_name LIKE '%$product_name%'
+        GROUP BY sale_product.product_ID,WEEK(sale.sale_date,3)
+        ORDER BY WEEK(sale.sale_date,3) DESC;  ";
+        $info_arr = array();
+
+        $result = mysqli_query($conn, $query);
+
+        if ($result->num_rows > 0) {
+
+            while ($row = $result->fetch_assoc()) {
+                // print_r($row);
+                // echo  "<br>";
+                $row["start_date"] = date($row["sale_date"], strtotime("this week"));
+                $row["end_date"] =  date('Y-m-d', strtotime('sunday this week', strtotime($row["sale_date"])));
+                $info_arr_new[] = array(
+                    "product_ID" => @$row["product_ID"],
+                    "product_name" => @$row["product_name"],
+                    "sale_PQuantity" => @$row["sale_PQuantity"],
+                    "Price_Per_Product" => @$row["Price"],
+                    "Week_No" => @$row["Week_No"],
+                    "sale_date" => @$row["sale_date"],
+                    "start_date" => @$row["start_date"],
+                    "end_date" => @$row["end_date"]
+                );
+                $info_arr = $info_arr + $info_arr_new;
+            }
+        } else {
+            echo "0 results UpdateInfo" . "<hr>";
+            return null;
+        }
+        // echo "***************************" . "<br>";
+        // print_r($info_arr);
+        return $info_arr;
+    }
     function SearchProductID($conn, $product_ID)
     {
         $query = "SELECT sale_product.product_ID, product.product_name, sale_product.sale_PQuantity,sale.sale_date,ROUND(sale_product.sale_PQuantity * product.Product_price,2) AS Price,        
