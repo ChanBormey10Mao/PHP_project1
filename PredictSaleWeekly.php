@@ -25,13 +25,8 @@
                 $Weekqty3 = $Weekqty3 +  $_SESSION["SalePredict"][$i]["sale_PQuantity"];
                 $WeekPricePerRow3 = $WeekPricePerRow3 +  $_SESSION["SalePredict"][$i]["Price_Per_Product"];
             }
-            $avg_qty =  $Weekqty3 / 3;
-            $price_avg = $WeekPricePerRow3 / 3;
-
-    ?>
-            <p>The Average Quantity sold out quantity in the past 3 weeks for <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <?php echo $avg_qty; ?> </p>
-            <p>The avergae sale price made from <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <?php echo $price_avg; ?> </p>
-    <?php
+            $_SESSION["avg_qty_productID"] =  $Weekqty3 / 3;
+            $_SESSION["price_avg_productID"] = $WeekPricePerRow3 / 3;
         }
         if (isset($_POST["productName"])) {
             $productNameSearch = $_POST["productName"];
@@ -79,6 +74,12 @@
         }
         ?>
     </table>
+    <div>
+
+        <p>The Average Quantity sold out quantity in the past 3 weeks for <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <?php echo $_SESSION["avg_qty_productID"]; ?> </p>
+        <p>The avergae sale price made from <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <?php echo $_SESSION["price_avg_productID"]; ?> </p>
+
+    </div>
 
     <?php
     function SearchProductID($conn, $product_ID)
