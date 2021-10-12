@@ -22,8 +22,8 @@
             $productIDSearch = $_POST["productID"];
             $_SESSION["SalePredict"] = SearchProductID($conn, $productIDSearch);
             $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
-            echo "<p>\$past3weekdate is $past3weekdate </p>";
-            echo "today is" . date('Y-m-d') . "<br>";
+            // echo "<p>\$past3weekdate is $past3weekdate </p>";
+            // echo "today is" . date('Y-m-d') . "<br>";
             for ($i = 0; $i < count($_SESSION["SalePredict"]); $i++) {
                 if (date('Y-m-d') > $past3weekdate) {
                     $Weekqty3 = $Weekqty3 +  $_SESSION["SalePredict"][$i]["sale_PQuantity"];
@@ -35,7 +35,15 @@
         }
         if (isset($_POST["productName"])) {
             $productNameSearch = $_POST["productName"];
-            // $_SESSION["SalePredict"] = SearchByProductName($conn, $productNameSearch);
+            $_SESSION["SalePredict"] = SearchByProductName($conn, $productNameSearch);
+            // $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
+            // for ($i = 0; $i < count($_SESSION["SalePredict"]); $i++) {
+
+            //     if (date('Y-m-d') > $past3weekdate) {
+            //         $Weekqty3 = $Weekqty3 +  $_SESSION["SalePredict"][$i]["sale_PQuantity"];
+            //         $WeekPricePerRow3 = $WeekPricePerRow3 +  $_SESSION["SalePredict"][$i]["Price_Per_Product"];
+            //     }
+            // }
         }
     }
     ?>
