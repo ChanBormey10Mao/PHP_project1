@@ -66,7 +66,7 @@
                 // print_r($row);
                 // echo  "<br>";
                 $row["start_date"] = date($row["sale_date"], strtotime("this week"));
-                $row["end_date"] =  strtotime('sunday this week', strtotime($row["sale_date"]));
+                $row["end_date"] =  date('Y-m-d', strtotime('sunday this week', strtotime($row["sale_date"])));
                 $info_arr_new[] = array(
                     "product_ID" => @$row["product_ID"],
                     "product_name" => @$row["product_name"],
