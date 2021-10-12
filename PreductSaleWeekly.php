@@ -47,7 +47,7 @@
         ON sale.sale_ID = sale_product.sale_ID
         INNER JOIN product
         ON sale_product.product_ID = product.product_ID
-        GROUP BY sale_product.product_ID,WEEK(sale.sale_date,1)
+        GROUP BY sale_product.product_ID,WEEK(sale.sale_date)
         ORDER BY WEEK(sale.sale_date) DESC;";
         $info_arr = array();
 
