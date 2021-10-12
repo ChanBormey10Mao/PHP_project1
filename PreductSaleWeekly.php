@@ -19,6 +19,8 @@
             <td>Product Name</td>
             <td>Sale Date</td>
             <td>Week No</td>
+            <td>Week Start Date</td>
+            <td>Week End Date</td>
             <td>Sale Quantity</td>
             <td>Price</td>
         </tr>
@@ -30,6 +32,8 @@
                 <td><?php echo $row["product_name"]; ?></td>
                 <td><?php echo $row["sale_date"]; ?></td>
                 <td><?php echo $row["Week_No"]; ?></td>
+                <td><?php echo $row["start_date"]; ?></td>
+                <td><?php echo $row["end_date"]; ?></td>
                 <td><?php echo $row["sale_PQuantity"]; ?></td>
                 <td><?php echo $row["Price_Per_Product"]; ?></td>
             </tr>
@@ -67,7 +71,9 @@
                     "sale_PQuantity" => @$row["sale_PQuantity"],
                     "Price_Per_Product" => @$row["Price"],
                     "Week_No" => @$row["Week_No"],
-                    "sale_date" => @$row["sale_date"]
+                    "sale_date" => @$row["sale_date"],
+                    "start_date" => @$row["start_date"],
+                    "end_date" => @$row["end_date"]
                 );
                 $info_arr = $info_arr + $info_arr_new;
             }
