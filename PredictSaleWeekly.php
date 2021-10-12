@@ -21,9 +21,9 @@
         if (isset($_POST["productID"])) {
             $productIDSearch = $_POST["productID"];
             $_SESSION["SalePredict"] = SearchProductID($conn, $productIDSearch);
+            $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
+            echo "<p>\$past3weekdate is $past3weekdate </p>";
             for ($i = 0; $i < count($_SESSION["SalePredict"]); $i++) {
-                $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
-                echo "<p>\$past3weekdate is $past3weekdate </p>";
                 if (date('Y-m-d') <= $past3weekdate) {
                     $Weekqty3 = $Weekqty3 +  $_SESSION["SalePredict"][$i]["sale_PQuantity"];
                     $WeekPricePerRow3 = $WeekPricePerRow3 +  $_SESSION["SalePredict"][$i]["Price_Per_Product"];
@@ -78,12 +78,19 @@
         }
         ?>
     </table>
-    <div>
+    <?php
+    if (isset($_SESSION["avg_qty_productID"])) {
+    ?>
+        <div>
 
-        <p>The Average Quantity sold out quantity in the past 3 weeks for <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <?php echo $_SESSION["avg_qty_productID"]; ?> </p>
-        <p>The avergae sale price made from <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <?php echo $_SESSION["price_avg_productID"]; ?> </p>
+            <p>The Average Quantity sold out quantity in the past 3 weeks for <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <?php echo $_SESSION["avg_qty_productID"]; ?> </p>
+            <p>The avergae sale price made from <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <?php echo $_SESSION["price_avg_productID"]; ?> </p>
 
-    </div>
+        </div>
+    <?php
+    }
+    ?>
+
 
     <?php
     function SearchByProductName($conn, $product_name)
