@@ -35,7 +35,7 @@
         }
         if (isset($_POST["productName"])) {
             $productNameSearch = $_POST["productName"];
-            $_SESSION["SalePredict"] = SearchByProductName($conn, $productNameSearch);
+            // $_SESSION["SalePredict"] = SearchByProductName($conn, $productNameSearch);
         }
     }
     ?>
