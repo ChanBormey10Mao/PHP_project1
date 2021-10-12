@@ -19,8 +19,8 @@
             <td>Product Name</td>
             <td>Sale Date</td>
             <td>Week No</td>
-            <td>Week Start Date</td>
-            <td>Week End Date</td>
+            <!-- <td>Week Start Date</td>
+            <td>Week End Date</td> -->
             <td>Sale Quantity</td>
             <td>Price</td>
         </tr>
@@ -32,8 +32,8 @@
                 <td><?php echo $row["product_name"]; ?></td>
                 <td><?php echo $row["sale_date"]; ?></td>
                 <td><?php echo $row["Week_No"]; ?></td>
-                <td><?php echo $row["start_date"]; ?></td>
-                <td><?php echo $row["end_date"]; ?></td>
+                <!-- <td><?php echo $row["start_date"]; ?></td>
+                <td><?php echo $row["end_date"]; ?></td> -->
                 <td><?php echo $row["sale_PQuantity"]; ?></td>
                 <td><?php echo $row["Price_Per_Product"]; ?></td>
             </tr>
