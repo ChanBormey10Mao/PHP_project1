@@ -157,7 +157,7 @@
     }
     function SearchProductID($conn, $product_ID)
     {
-        $query = "SELECT sale_product.product_ID, product.product_name, SUM(sale_product.sale_PQuantity),sale.sale_date,ROUND(SUM(sale_product.sale_PQuantity) * product.Product_price,2) AS Price,        
+        $query = "SELECT sale_product.product_ID, product.product_name, SUM(sale_product.sale_PQuantity) as sale_PQuantity,sale.sale_date,ROUND(SUM(sale_product.sale_PQuantity) * product.Product_price,2) AS Price,        
         WEEK(sale.sale_date,3) as Week_No 
         FROM sale  
         INNER JOIN sale_product
