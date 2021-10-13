@@ -106,6 +106,7 @@
 
         </div>
     <?php
+        unset($_SESSION["avg_qty_productID"]);
     }
     ?>
 
