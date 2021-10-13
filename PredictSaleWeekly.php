@@ -25,7 +25,7 @@
             // echo "<p>\$past3weekdate is $past3weekdate </p>";
             // echo "today is" . date('Y-m-d') . "<br>";
             for ($i = 0; $i < count($_SESSION["SalePredict"]); $i++) {
-                if (date('Y-m-d') > $past3weekdate) {
+                if ($_SESSION["SalePredict"][$i]["sale_date"] > $past3weekdate) {
                     $Weekqty3 = $Weekqty3 +  $_SESSION["SalePredict"][$i]["sale_PQuantity"];
                     $WeekPricePerRow3 = $WeekPricePerRow3 +  $_SESSION["SalePredict"][$i]["Price_Per_Product"];
                 }
@@ -36,14 +36,15 @@
         if (isset($_POST["productName"])) {
             $productNameSearch = $_POST["productName"];
             $_SESSION["SalePredict"] = SearchByProductName($conn, $productNameSearch);
-            // $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
-            // for ($i = 0; $i < count($_SESSION["SalePredict"]); $i++) {
-
-            //     if (date('Y-m-d') > $past3weekdate) {
-            //         $Weekqty3 = $Weekqty3 +  $_SESSION["SalePredict"][$i]["sale_PQuantity"];
-            //         $WeekPricePerRow3 = $WeekPricePerRow3 +  $_SESSION["SalePredict"][$i]["Price_Per_Product"];
-            //     }
-            // }
+            $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
+            $ArrAfterDiffID = array();
+            $Weekqty3s = array();
+            $WeekPricePerRow3s = array();
+            foreach ($_SESSION["SalePredict"] as $row => $data) {
+                $ArrAfterDiffID[$data['product_ID']][$row] = $data;
+                print_r($ArrAfterDiffID[$data['product_ID']][$row]);
+            }
+            ksort($ArrAfterDiffID, SORT_NUMERIC);
         }
     }
     ?>
@@ -138,7 +139,7 @@
                 $info_arr = $info_arr + $info_arr_new;
             }
         } else {
-            echo "0 results UpdateInfo" . "<hr>";
+            echo "0 results" . "<hr>";
             return null;
         }
         // echo "***************************" . "<br>";
