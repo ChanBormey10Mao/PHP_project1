@@ -41,7 +41,7 @@
             $Weekqty3s = array();
             $WeekPricePerRow3s = array();
             foreach ($_SESSION["SalePredict"] as $row => $data) {
-                echo $row . "-" . $data;
+                echo $row . "-" . $data . "<br>";
                 // $ArrAfterDiffID[$data['product_ID']][$row] = $data;
                 // print_r($ArrAfterDiffID[$data['product_ID']][$row]);
                 // echo "<br>";
