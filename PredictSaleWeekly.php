@@ -41,9 +41,10 @@
             $Weekqty3s = array();
             $WeekPricePerRow3s = array();
             foreach ($_SESSION["SalePredict"] as $row => $data) {
-                $ArrAfterDiffID[$data['product_ID']][$row] = $data;
-                print_r($ArrAfterDiffID[$data['product_ID']]);
-                echo "<br>";
+                echo $row . "-" . $data;
+                // $ArrAfterDiffID[$data['product_ID']][$row] = $data;
+                // print_r($ArrAfterDiffID[$data['product_ID']][$row]);
+                // echo "<br>";
             }
             ksort($ArrAfterDiffID, SORT_NUMERIC);
         }
@@ -183,7 +184,7 @@
                 $info_arr = $info_arr + $info_arr_new;
             }
         } else {
-            echo "0 results UpdateInfo" . "<hr>";
+            // echo "0 results UpdateInfo" . "<hr>";
             return null;
         }
         // echo "***************************" . "<br>";
