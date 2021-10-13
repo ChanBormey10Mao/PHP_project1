@@ -42,7 +42,7 @@
             $WeekPricePerRow3s = array();
             foreach ($_SESSION["SalePredict"] as $row => $data) {
                 $ArrAfterDiffID[$data['product_ID']][$row] = $data;
-                print_r($ArrAfterDiffID[$data['product_ID']][$row]);
+                print_r($ArrAfterDiffID[$data['product_ID']]);
                 echo "<br>";
             }
             ksort($ArrAfterDiffID, SORT_NUMERIC);
