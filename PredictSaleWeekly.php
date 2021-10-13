@@ -165,7 +165,7 @@
         INNER JOIN product
         ON sale_product.product_ID = product.product_ID
         WHERE sale_product.product_ID = $product_ID 
-        GROUP BY sale_product.product_ID
+        GROUP BY sale_product.product_ID,WEEK(sale.sale_date,3)
         ORDER BY WEEK(sale.sale_date,3) DESC LIMIT 100;  ";
         $info_arr = array();
 
