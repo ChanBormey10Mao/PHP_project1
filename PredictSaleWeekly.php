@@ -101,8 +101,8 @@
     ?>
         <div>
 
-            <p>The Average Quantity sold out quantity in the past 3 weeks for <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <?php echo $_SESSION["avg_qty_productID"]; ?> </p>
-            <p>The avergae sale price made from <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <?php echo $_SESSION["price_avg_productID"]; ?> </p>
+            <p>The Average Quantity sold out quantity in the past 3 weeks for <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <span style="color:green;"><?php echo $_SESSION["avg_qty_productID"]; ?></span> </p>
+            <p>The avergae sale price made from <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <span style="color:green;"><?php echo $_SESSION["price_avg_productID"]; ?></span> </p>
 
         </div>
     <?php
