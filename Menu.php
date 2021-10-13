@@ -24,13 +24,16 @@
             <a href="Product_View.php">View All Product</a>
             <!-- <a href="editing_Product.php">Hide a product</a> -->
           </div>
+          <div>
+            <a href="PredictSaleWeekly.php">View Weekly Sale Average</a>
+          </div>
           <a href="#">Stock Managment</a>
         </nav>
   </div>
   </header>
   </center>
   <div class="banner-area">
-<!-- hello1 -->
+    <!-- hello1 -->
   </div>
   <div class="content-area">
     <div class="wrapper">

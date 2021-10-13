@@ -22,7 +22,7 @@
             $productIDSearch = $_POST["productID"];
             $_SESSION["SalePredict"] = SearchProductID($conn, $productIDSearch);
             $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
-            // echo "<p>\$past3weekdate is $past3weekdate </p>";
+            echo "<p>\$past3weekdate is $past3weekdate </p>";
             // echo "today is" . date('Y-m-d') . "<br>";
             for ($i = 0; $i < count($_SESSION["SalePredict"]); $i++) {
                 if ($_SESSION["SalePredict"][$i]["sale_date"] > $past3weekdate) {
@@ -100,10 +100,8 @@
     if (isset($_SESSION["avg_qty_productID"])) {
     ?>
         <div>
-
             <p>The Average Quantity sold out quantity in the past 3 weeks for <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <span style="color:green;"><?php echo $_SESSION["avg_qty_productID"]; ?></span> </p>
             <p>The avergae sale price made from <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <span style="color:green;"><?php echo $_SESSION["price_avg_productID"]; ?></span> </p>
-
         </div>
         <div>
             <button><a href="Menu.php">Return to Menu Page</a></button>
