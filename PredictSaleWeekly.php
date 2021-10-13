@@ -105,6 +105,9 @@
             <p>The avergae sale price made from <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <span style="color:green;"><?php echo $_SESSION["price_avg_productID"]; ?></span> </p>
 
         </div>
+        <div>
+            <button><a href="Menu.php">Return to Menu Page</a></button>
+        </div>
     <?php
         unset($_SESSION["avg_qty_productID"]);
     }

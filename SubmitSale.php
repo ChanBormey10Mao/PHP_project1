@@ -127,6 +127,7 @@
     //for ching
     function UpdateInventory($conn, $product_ID, $quantity)
     {
+        
         //update in inventory table when sale has submitted
         $query = "update Inventory set Quantity = Quantity -'$quantity'  where product_ID='$product_ID';";
         $result = mysqli_query($conn, $query);
