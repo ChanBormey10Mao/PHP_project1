@@ -185,8 +185,6 @@
                     "Price_Per_Product" => @$row["Price"],
                     "Week_No" => @$row["Week_No"],
                     "sale_date" => @$row["sale_date"],
-                    "start_date" => @$row["start_date"],
-                    "end_date" => @$row["end_date"]
                 );
                 $info_arr = $info_arr + $info_arr_new;
             }
@@ -228,9 +226,7 @@
                     "sale_PQuantity" => @$row["sale_PQuantity"],
                     "Price_Per_Product" => @$row["Price"],
                     "Week_No" => @$row["Week_No"],
-                    "sale_date" => @$row["sale_date"],
-                    "start_date" => @$row["start_date"],
-                    "end_date" => @$row["end_date"]
+                    "sale_date" => @$row["sale_date"]
                 );
                 $info_arr = $info_arr + $info_arr_new;
             }
