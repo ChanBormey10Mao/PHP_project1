@@ -43,6 +43,7 @@
             foreach ($_SESSION["SalePredict"] as $row => $data) {
                 $ArrAfterDiffID[$data['product_ID']][$row] = $data;
                 print_r($ArrAfterDiffID[$data['product_ID']][$row]);
+                echo "<br>";
             }
             ksort($ArrAfterDiffID, SORT_NUMERIC);
         }
