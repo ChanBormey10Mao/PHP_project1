@@ -33,21 +33,27 @@
             $_SESSION["avg_qty_productID"] =  $Weekqty3 / 3;
             $_SESSION["price_avg_productID"] = $WeekPricePerRow3 / 3;
         }
-        if (isset($_POST["productName"])) {
-            $productNameSearch = $_POST["productName"];
-            $_SESSION["SalePredict"] = SearchByProductName($conn, $productNameSearch);
-            $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
-            $ArrAfterDiffID = array();
-            $Weekqty3s = array();
-            $WeekPricePerRow3s = array();
-            foreach ($_SESSION["SalePredict"] as $row => $data) {
-                echo $row . "-" . $data . "<br>";
-                // $ArrAfterDiffID[$data['product_ID']][$row] = $data;
-                // print_r($ArrAfterDiffID[$data['product_ID']][$row]);
-                // echo "<br>";
-            }
-            ksort($ArrAfterDiffID, SORT_NUMERIC);
-        }
+        // if (isset($_POST["productName"])) {
+        //     $productNameSearch = $_POST["productName"];
+        //     $_SESSION["SalePredict"] = SearchByProductName($conn, $productNameSearch);
+        //     $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
+        //     $ArrAfterDiffID = array();
+        //     $Weekqty3s = array();
+        //     $WeekPricePerRow3s = array();
+        //     for ($i = 0; $i < count($_SESSION["SalePredict"]); $i++) {
+        //         //    for($j =i; $j<count($_SESSION["SalePredict"]) ; $j++)
+        //         $ID = $_SESSION["SalePredict"][$i]["product_ID"];
+        //         for($j =$i; $j<count($_SESSION["SalePredict"]) ; $j++){
+        //             if($_SESSION["SalePredict"][$j]["product_ID"] ==  $ID ){
+
+        //             }
+        //         }
+        //         // $ArrAfterDiffID[$data['product_ID']][$row] = $data;
+        //         // print_r($ArrAfterDiffID[$data['product_ID']][$row]);
+        //         // echo "<br>";
+        //     }
+        //     ksort($ArrAfterDiffID, SORT_NUMERIC);
+        // }
     }
     ?>
     <form action="PredictSaleWeekly.php" method="POST">
@@ -55,10 +61,10 @@
             <label for="productID">Product ID</label>
             <input type="text" name="productID">
         </section>
-        <section>
+        <!-- <section>
             <label for="productName">Product Name</label>
             <input type="text" name="productName">
-        </section>
+        </section> -->
         <!-- <label for="date">Date</label>
         <input type="text" name="date"> -->
         <input type="submit" name="submitSearch" value="View Prediction">
