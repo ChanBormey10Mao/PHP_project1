@@ -17,6 +17,7 @@
           <div class="sale">
             <a href="CreateSale.php">Create New Sale</a>
             <a href="ReviewSale.php">View Sales</a>
+            <a href="logout.php" class="btn pull-right">Sign Out</a>
             <!-- <a href="ReturnedSale.php">Return Product</a> -->
           </div>
           <div class="prod">
