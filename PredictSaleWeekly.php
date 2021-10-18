@@ -32,8 +32,8 @@
                     $WeekPricePerRow3 = $WeekPricePerRow3 +  $_SESSION["SalePredict"][$i]["Price_Per_Product"];
                 }
             }
-            $_SESSION["avg_qty_productID"] =  $Weekqty3 / 3;
-            $_SESSION["price_avg_productID"] = $WeekPricePerRow3 / 3;
+            $_SESSION["avg_qty_productID"] =  number_format($Weekqty3 / 3, 2);
+            $_SESSION["price_avg_productID"] = number_format($WeekPricePerRow3 / 3, 2);
         }
         if (isset($_POST["productName"]) && trim($_POST["productName"]) != "") {
             $productNameSearch = $_POST["productName"];
@@ -118,6 +118,11 @@
         <div>
             <p>The Average Quantity sold out quantity in the past 3 weeks for <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <span style="color:green;"><?php echo $_SESSION["avg_qty_productID"]; ?></span> </p>
             <p>The avergae sale price made from <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <span style="color:green;"><?php echo $_SESSION["price_avg_productID"]; ?></span> </p>
+            <div>
+                <button><a href="PredictSaleWeekly.php">Back</a></button>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <button><a href="Menu.php">Menu</a></button>
+            </div>
         </div>
         <div>
             <button><a href="Menu.php">Return to Menu Page</a></button>
