@@ -82,8 +82,10 @@
 
             <td class="test">Product ID</td>
             <td class="test"> Product Name</td>
-            <td class="test">Start of The week date</td>
-            <td class="test">Week No</td>
+            <td class="test">Sale Date</td>
+            <td class="test">Month</td>
+
+            <!-- <td class="test">Week No</td> -->
 
             <td>Sale Quantity</td>
             <td>Price</td>
@@ -98,7 +100,7 @@
                 <td><?php echo $row["product_ID"]; ?></td>
                 <td><?php echo $row["product_name"]; ?></td>
                 <td><?php echo $row["sale_date"]; ?></td>
-                <td><?php echo $row["Week_No"]; ?></td>
+                <td><?php echo $row["month"]; ?></td>
 
                 <td><?php echo $row["sale_PQuantity"]; ?></td>
                 <td><?php echo $row["Price_Per_Product"]; ?></td>
@@ -135,7 +137,7 @@
     function SearchByProductName($conn, $product_name)
     {
         $query = "SELECT sale_product.product_ID, product.product_name, sale_product.sale_PQuantity,sale.sale_date,ROUND(sale_product.sale_PQuantity * product.Product_price,2) AS Price,        
-        DATE_ADD(NOW(),INTERVAL -90 DAY)  as Week_No 
+        DATE_ADD(NOW(),INTERVAL -90 DAY) , MONTH(sale_date) as month
         FROM sale  
         INNER JOIN sale_product
         ON sale.sale_ID = sale_product.sale_ID
@@ -153,17 +155,14 @@
             while ($row = $result->fetch_assoc()) {
                 // print_r($row);
                 // echo  "<br>";
-                $row["start_date"] = date($row["sale_date"], strtotime("this week"));
-                $row["end_date"] =  date('Y-m-d', strtotime('sunday this week', strtotime($row["sale_date"])));
+                // $row["start_date"] = date($row["sale_date"], strtotime("this week"));
+                // $row["end_date"] =  date('Y-m-d', strtotime('sunday this week', strtotime($row["sale_date"])));
                 $info_arr_new[] = array(
                     "product_ID" => @$row["product_ID"],
                     "product_name" => @$row["product_name"],
                     "sale_PQuantity" => @$row["sale_PQuantity"],
                     "Price_Per_Product" => @$row["Price"],
-                    "Week_No" => @$row["Week_No"],
-                    "sale_date" => @$row["sale_date"],
-                    "start_date" => @$row["start_date"],
-                    "end_date" => @$row["end_date"]
+                    "month" => @$row["month"]
                 );
                 $info_arr = $info_arr + $info_arr_new;
             }
@@ -178,7 +177,7 @@
     function SearchProductID($conn, $product_ID)
     {
         $query = "SELECT sale_product.product_ID, product.product_name, SUM(sale_product.sale_PQuantity) as sale_PQuantity,sale.sale_date,ROUND(SUM(sale_product.sale_PQuantity) * product.Product_price,2) AS Price,        
-        DATE_ADD(NOW(),INTERVAL -90 DAY)  as Week_No 
+        DATE_ADD(NOW(),INTERVAL -90 DAY)  , MONTH(sale_date) as month
         FROM sale  
         INNER JOIN sale_product
         ON sale.sale_ID = sale_product.sale_ID
@@ -196,8 +195,7 @@
             while ($row = $result->fetch_assoc()) {
                 // print_r($row);
                 // echo  "<br>";
-                $row["start_date"] = date($row["sale_date"], strtotime("this week"));
-                $row["end_date"] =  date('Y-m-d', strtotime('sunday this week', strtotime($row["sale_date"])));
+
                 $info_arr_new[] = array(
                     "product_ID" => @$row["product_ID"],
                     "product_name" => @$row["product_name"],
@@ -205,6 +203,8 @@
                     "Price_Per_Product" => @$row["Price"],
                     "Week_No" => @$row["Week_No"],
                     "sale_date" => @$row["sale_date"],
+                    "month" => @$row["month"]
+
                 );
                 $info_arr = $info_arr + $info_arr_new;
             }

@@ -97,7 +97,7 @@
             <tr>
                 <td><?php echo $row["product_ID"]; ?></td>
                 <td><?php echo $row["product_name"]; ?></td>
-                <td><?php echo $row["sale_date"]; ?></td>
+                <td><?php echo $row["start_date"]; ?></td>
                 <td><?php echo $row["Week_No"]; ?></td>
 
                 <td><?php echo $row["sale_PQuantity"]; ?></td>
