@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Predict Sale Weekly</title>
-    <link rel="stylesheet" href="PredictSaleWeekly.css">
+    <link rel="stylesheet" href="PredictSaleMonthly.css">
 </head>
 
 <body>
@@ -62,8 +62,8 @@
 
     ?>
 
-    <!-- <a href="PredictSaleWeekly.php?action=lookname&idlook=<?php echo $row["SalePredict"]["product_ID"]; ?>">View Weekly Average</a> -->
-    <form action="PredictSaleWeekly.php" method="POST">
+    <!-- <a href="PredictSaleMonthly.php?action=lookname&idlook=<?php echo $row["SalePredict"]["product_ID"]; ?>">View Weekly Average</a> -->
+    <form action="PredictSaleMonthly.php" method="POST">
         <section>
             <label for="productID">Product ID</label>
             <input type="text" name="productID">
@@ -104,7 +104,7 @@
                 <td><?php echo $row["Price_Per_Product"]; ?></td>
 
                 <?php if (isset($Ride)) { ?>
-                    <td><a href="PredictSaleWeekly.php?action=lookname&idlook=<?php echo $row["product_ID"]; ?>">View Weekly Average</a></td>
+                    <td><a href="PredictSaleMonthly.php?action=lookname&idlook=<?php echo $row["product_ID"]; ?>">View Weekly Average</a></td>
                 <?php } ?>
 
             </tr>
@@ -121,7 +121,7 @@
 
         </div>
         <div>
-            <button><a href="PredictSaleWeekly.php">Back</a></button>
+            <button><a href="PredictSaleMonthly.php">Back</a></button>
             <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             <button><a href="Menu.php">Return to Menu Page</a></button>
         </div>
