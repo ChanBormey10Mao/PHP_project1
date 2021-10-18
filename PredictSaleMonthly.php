@@ -22,7 +22,7 @@
         if (isset($_POST["productID"]) && trim($_POST["productID"]) != "") {
             $productIDSearch = $_POST["productID"];
             $_SESSION["SalePredict"] = SearchProductID($conn, $productIDSearch);
-            $past3monthdate = date('Y-m-d', strtotime('-3 Months', strtotime(date('Y-m-d'))));
+            $past3monthdate = date('Y-m-d', strtotime('-3 months', strtotime(date('Y-m-d'))));
             // echo "<p>\$past3monthdate is $past3monthdate </p>";
             // echo "today is" . date('Y-m-d') . "<br>";
             for ($i = 0; $i < count($_SESSION["SalePredict"]); $i++) {
@@ -46,7 +46,7 @@
         // echo $idlooked . "<br>";
         $_SESSION["SalePredict"] = SearchProductID($conn, $idlooked);
 
-        $past3monthdate = date('Y-m-d', strtotime('-3 Months', strtotime(date('Y-m-d'))));
+        $past3monthdate = date('Y-m-d', strtotime('-3 months', strtotime(date('Y-m-d'))));
         // echo "<p>\$past3monthdate is $past3monthdate </p>";
         // echo "today is" . date('Y-m-d') . "<br>";
         for ($i = 0; $i < count($_SESSION["SalePredict"]); $i++) {
@@ -162,6 +162,7 @@
                     "product_name" => @$row["product_name"],
                     "sale_PQuantity" => @$row["sale_PQuantity"],
                     "Price_Per_Product" => @$row["Price"],
+                    "sale_date" => @$row["sale_date"],
                     "month" => @$row["month"]
                 );
                 $info_arr = $info_arr + $info_arr_new;
