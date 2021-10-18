@@ -26,6 +26,11 @@
                 <button type="submit" name="productSearch" class=button>Search</button>
             </span>
         </form>
+        <div>
+        <form method="post" action="export.php" align="center">  
+                     <input type="submit" name="export" value="CSV Export" class="btn btn-success" />  
+        </form> 
+        </div>
         <?php
         $result = retriveDataFrDB_Product($conn);
         if (isset($_POST["productSearch"])) {
