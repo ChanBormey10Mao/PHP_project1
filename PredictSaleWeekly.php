@@ -74,13 +74,15 @@
 
     <table style="width: 100%;" class = "content-table">
         <tr>
-            <td class = "test">Product ID</td>
+<div  class = "test">
+            <td>Product ID</td>
             <td>Product Name</td>
             <td>Start of The week date</td>
             <td>Week No</td>
 
             <td>Sale Quantity</td>
             <td>Price</td>
+</div>
         </tr>
         <?php
         foreach ($_SESSION["SalePredict"] as $row) {
