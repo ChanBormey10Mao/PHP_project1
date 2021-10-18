@@ -116,7 +116,7 @@
     if (isset($_SESSION["avg_qty_productID"])) {
     ?>
         <div>
-            <p>The Average Quantity sold out quantity in the past 3 weeks for <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <span style="color:green;"><?php echo $_SESSION["avg_qty_productID"]; ?></span> </p>
+            <p>The Average Quantity sold out quantity in the past 3 months for <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <span style="color:green;"><?php echo $_SESSION["avg_qty_productID"]; ?></span> </p>
             <p>The avergae sale price made from <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <span style="color:green;"><?php echo $_SESSION["price_avg_productID"]; ?></span> </p>
 
         </div>
@@ -135,15 +135,15 @@
     function SearchByProductName($conn, $product_name)
     {
         $query = "SELECT sale_product.product_ID, product.product_name, sale_product.sale_PQuantity,sale.sale_date,ROUND(sale_product.sale_PQuantity * product.Product_price,2) AS Price,        
-        DATEADD(DAY, -90, GETDATE()) as Week_No 
+        DATE_ADD(NOW(),INTERVAL -90 DAY)  as Week_No 
         FROM sale  
         INNER JOIN sale_product
         ON sale.sale_ID = sale_product.sale_ID
         INNER JOIN product
         ON sale_product.product_ID = product.product_ID
         WHERE product.product_name LIKE '%$product_name%'
-        GROUP BY sale_product.product_ID,DATEADD(DAY, -90, GETDATE())
-        ORDER BY DATEADD(DAY, -90, GETDATE()) DESC;  ";
+        GROUP BY sale_product.product_ID,DATE_ADD(NOW(),INTERVAL -90 DAY) 
+        ORDER BY DATE_ADD(NOW(),INTERVAL -90 DAY)  DESC;  ";
         $info_arr = array();
 
         $result = mysqli_query($conn, $query);
@@ -178,15 +178,15 @@
     function SearchProductID($conn, $product_ID)
     {
         $query = "SELECT sale_product.product_ID, product.product_name, SUM(sale_product.sale_PQuantity) as sale_PQuantity,sale.sale_date,ROUND(SUM(sale_product.sale_PQuantity) * product.Product_price,2) AS Price,        
-        DATEADD(DAY, -90, GETDATE()) as Week_No 
+        DATE_ADD(NOW(),INTERVAL -90 DAY)  as Week_No 
         FROM sale  
         INNER JOIN sale_product
         ON sale.sale_ID = sale_product.sale_ID
         INNER JOIN product
         ON sale_product.product_ID = product.product_ID
         WHERE sale_product.product_ID = $product_ID 
-        GROUP BY sale_product.product_ID,DATEADD(DAY, -90, GETDATE())
-        ORDER BY sale_date >= DDATEADD(DAY, -90, GETDATE()) DESC LIMIT 100;  ";
+        GROUP BY sale_product.product_ID,DATE_ADD(NOW(),INTERVAL -90 DAY) 
+        ORDER BY sale_date >= DDATE_ADD(NOW(),INTERVAL -90 DAY)  DESC LIMIT 100;  ";
         $info_arr = array();
 
         $result = mysqli_query($conn, $query);
@@ -219,16 +219,15 @@
     function RetrieveDataDB($conn)
     {
         $query = "SELECT sale_product.product_ID, product.product_name, SUM(sale_product.sale_PQuantity) as sale_PQuantity,sale.sale_date,ROUND(SUM(sale_product.sale_PQuantity) * product.Product_price,2) AS Price, 
-        -- DATE_ADD(sale.sale_date, INTERVAL(-DAYOFWEEK(sale.sale_date)) DAY) as start_date,
-        -- DATE_ADD(sale.sale_date, INTERVAL(-DAYOFWEEK(sale.sale_date)) DAY) as end_date, 
-        DATEADD(DAY, -90, GETDATE()) as Week_No 
+       
+        DATE_ADD(NOW(),INTERVAL -90 DAY)  as Week_No 
         FROM sale  
         INNER JOIN sale_product
         ON sale.sale_ID = sale_product.sale_ID
         INNER JOIN product
         ON sale_product.product_ID = product.product_ID
-        GROUP BY sale_product.product_ID,DATEADD(DAY, -90, GETDATE())
-        ORDER BY DATEADD(DAY, -90, GETDATE()) DESC;";
+        GROUP BY sale_product.product_ID,DATE_ADD(NOW(),INTERVAL -90 DAY) 
+        ORDER BY DATE_ADD(NOW(),INTERVAL -90 DAY)  DESC;";
         $info_arr = array();
 
         $result = mysqli_query($conn, $query);
