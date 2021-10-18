@@ -1,6 +1,6 @@
 <?php 
-if(isset($_POST['export']))
-{
+// if(isset($_POST['export']))
+// {
 	include('DBconnect.php');
 	header('Content-Type: text/csv; charset=utf-8');  
       header('Content-Disposition: attachment; filename=sale.csv');  
@@ -18,8 +18,8 @@ if(isset($_POST['export']))
            fputcsv($output, $row);  
       }  
       fclose($output);  
-}else{
-      echo "No coming to export.php";
-}
+// }else{
+//       echo "No coming to export.php";
+// }
 
 ?>

@@ -33,9 +33,11 @@
             </span>
         </div>
         <div>
-        <form method="post" action="export.php" align="center">  
+            sv  <a href="export.php">Export file to CSV</a>
+        <!-- <form method="post" action="export.php" align="center"> 
+           
                      <input type="submit" name="export" value="CSV Export" class="btn btn-success" />  
-        </form> 
+        </form>  -->
         </div>
     </form>
     <?php
