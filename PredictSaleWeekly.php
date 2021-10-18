@@ -43,8 +43,9 @@
     }
     if (isset($_GET["action"]) == "lookname") {
         $idlooked = $_GET["idlook"];
-        echo $idlooked . "<br>";
-        $_SESSION["SalePredict"] = SearchProductID($conn, $productIDSearch);
+        // echo $idlooked . "<br>";
+        $_SESSION["SalePredict"] = SearchProductID($conn, $idlooked);
+
         $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
         // echo "<p>\$past3weekdate is $past3weekdate </p>";
         // echo "today is" . date('Y-m-d') . "<br>";
