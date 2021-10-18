@@ -1,5 +1,5 @@
 <?php
-include('setting.php');
+include('DBconnect.php');
 
 $query="select * from product order by product_ID desc;";
 $result=mysqli_query($conn,$query);
