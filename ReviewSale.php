@@ -32,14 +32,16 @@
                 <button type="submit" name="DateSearch" class="button">Search</button>
             </span>
         </div>
-        <div>
-            sv  <a href="export.php">Export file to CSV</a>
+        
+    </form>
+    
+            <button><a href="export.php">Export file to CSV</a></button>
+
         <!-- <form method="post" action="export.php" align="center"> 
            
                      <input type="submit" name="export" value="CSV Export" class="btn btn-success" />  
         </form>  -->
-        </div>
-    </form>
+    
     <?php
     include("DBconnect.php");
     session_start();
