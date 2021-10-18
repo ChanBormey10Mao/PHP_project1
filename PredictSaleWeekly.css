@@ -5,6 +5,11 @@
     min-width: 400px;
     
 }
+
+.test {
+    background-color: green;
+    
+}
  
 .content-table td {
     padding: 12px 15px;

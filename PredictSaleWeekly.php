@@ -74,7 +74,7 @@
 
     <table style="width: 100%;" class = "content-table">
         <tr>
-            <td>Product ID</td>
+            <td class = "test">Product ID</td>
             <td>Product Name</td>
             <td>Start of The week date</td>
             <td>Week No</td>
