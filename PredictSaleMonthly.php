@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Predict Sale Weekly</title>
-    <link rel="stylesheet" href="PredictSaleMonthly.css">
+    <link rel="stylesheet" href="PredictSaleWeekly.css">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         if (isset($_POST["productID"]) && trim($_POST["productID"]) != "") {
             $productIDSearch = $_POST["productID"];
             $_SESSION["SalePredict"] = SearchProductID($conn, $productIDSearch);
-            print_r($_SESSION["SalePredict"]);
+            // print_r($_SESSION["SalePredict"]);
             $past3monthdate = date('Y-m-d', strtotime('-3 months', strtotime(date('Y-m-d'))));
             // echo "<p>\$past3monthdate is $past3monthdate </p>";
             // echo "today is" . date('Y-m-d') . "<br>";
@@ -88,8 +88,8 @@
 
             <!-- <td class="test">Week No</td> -->
 
-            <td>Sale Quantity</td>
-            <td>Price</td>
+            <td class="test">Sale Quantity</td>
+            <td class="test">Price</td>
             <?php if (isset($Ride)) { ?>
                 <td>View Average Sale</td>
             <?php } ?>

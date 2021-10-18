@@ -85,8 +85,8 @@
             <td class="test">Start of The week date</td>
             <td class="test">Week No</td>
 
-            <td>Sale Quantity</td>
-            <td>Price</td>
+            <td class="test">Sale Quantity</td>
+            <td class="test">Price</td>
             <?php if (isset($Ride)) { ?>
                 <td>View Average Sale</td>
             <?php } ?>
