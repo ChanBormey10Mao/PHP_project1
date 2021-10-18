@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="PredictSaleWeekly.css">
 </head>
 
-<body>
+<body onunload="func()">
     <?php include("DBconnect.php");
     session_start();
 
@@ -216,6 +216,7 @@
         // print_r($info_arr);
         return $info_arr;
     }
+
     function RetrieveDataDB($conn)
     {
         $query = "SELECT sale_product.product_ID, product.product_name, SUM(sale_product.sale_PQuantity) as sale_PQuantity,sale.sale_date,ROUND(SUM(sale_product.sale_PQuantity) * product.Product_price,2) AS Price, 
@@ -259,6 +260,13 @@
         return $info_arr;
     }
     ?>
+    <script type="text/javascript">
+        function func() {
+            if (window.history.previous) {
+                window.navigate('PredictSaleWeekly.php');
+            }
+        }
+    </script>
 
 </body>
 

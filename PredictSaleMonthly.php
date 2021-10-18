@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="PredictSaleWeekly.css">
 </head>
 
-<body>
+<body onunload="func()">
     <?php include("DBconnect.php");
     session_start();
 
@@ -259,8 +259,15 @@
         // print_r($info_arr);
         return $info_arr;
     }
-    ?>
 
+    ?>
+    <script type="text/javascript">
+        function func() {
+            if (window.history.previous) {
+                window.navigate('PredictSaleMonthly.php');
+            }
+        }
+    </script>
 </body>
 
 </html>
