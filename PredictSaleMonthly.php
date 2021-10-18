@@ -187,7 +187,7 @@
         ON sale_product.product_ID = product.product_ID
         WHERE sale_product.product_ID = $product_ID 
         GROUP BY sale_product.product_ID,DATE_ADD(NOW(),INTERVAL -90 DAY) 
-        ORDER BY sale_date >= DDATE_ADD(NOW(),INTERVAL -90 DAY)  DESC LIMIT 100;  ";
+        ORDER BY sale_date >= DATE_ADD(NOW(),INTERVAL -90 DAY)  DESC LIMIT 100;  ";
         $info_arr = array();
 
         $result = mysqli_query($conn, $query);
