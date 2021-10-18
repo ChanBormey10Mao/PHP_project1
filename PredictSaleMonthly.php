@@ -264,7 +264,7 @@
     <script type="text/javascript">
         function func() {
             if (window.history.previous) {
-                window.navigate('PredictSaleMonthly.php');
+                window.location('PredictSaleMonthly.php');
             }
         }
     </script>

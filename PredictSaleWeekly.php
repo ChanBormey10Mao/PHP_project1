@@ -263,7 +263,7 @@
     <script type="text/javascript">
         function func() {
             if (window.history.previous) {
-                window.navigate('PredictSaleWeekly.php');
+                window.location('PredictSaleWeekly.php');
             }
         }
     </script>
