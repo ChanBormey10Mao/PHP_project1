@@ -32,6 +32,11 @@
                 <button type="submit" name="DateSearch" class="button">Search</button>
             </span>
         </div>
+        <div>
+        <form method="post" action="export.php" align="center">  
+                     <input type="submit" name="export" value="CSV Export" class="btn btn-success" />  
+        </form> 
+        </div>
     </form>
     <?php
     include("DBconnect.php");
