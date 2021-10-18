@@ -79,14 +79,15 @@
         <tr>
 
             <td class="test">Product ID</td>
-            <td> class = "test"Product Name</td>
+            <td class="test"> Product Name</td>
             <td class="test">Start of The week date</td>
             <td class="test">Week No</td>
+
+            <td>Sale Quantity</td>
+            <td>Price</td>
             <?php if (isset($Ride)) { ?>
                 <td>View Average Sale</td>
             <?php } ?>
-            <td>Sale Quantity</td>
-            <td>Price</td>
         </tr>
         <?php
         foreach ($_SESSION["SalePredict"] as $row) {
