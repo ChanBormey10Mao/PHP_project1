@@ -11,7 +11,7 @@ if(isset($_POST['export']))
       INNER JOIN sale
       ON sale.sale_ID = sale_product.sale_ID
       INNER JOIN product
-      ON sale_product.product_ID = product.product_ID DESC;";  
+      ON sale_product.product_ID = product.product_ID;";  
       $result = mysqli_query($conn, $query);  
       while($row = mysqli_fetch_assoc($result))  
       {  
