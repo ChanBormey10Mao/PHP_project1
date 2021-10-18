@@ -40,7 +40,7 @@
             $_SESSION["SalePredict"] = SearchByProductName($conn, $productNameSearch);
             $Ride = "";
         }
-        if (isset($_GET["lookname"])) {
+        if (isset($_GET["action"]) == "lookname") {
             $idlooked = $_GET["idlook"];
             $_SESSION["SalePredict"] = SearchProductID($conn, $productIDSearch);
             $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
