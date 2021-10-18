@@ -38,9 +38,29 @@
         if (isset($_POST["productName"])) {
             $productNameSearch = $_POST["productName"];
             $_SESSION["SalePredict"] = SearchByProductName($conn, $productNameSearch);
+            $Ride = "";
+        }
+        if (isset($_GET["lookname"])) {
+            $idlooked = $_GET["idlook"];
+            $_SESSION["SalePredict"] = SearchProductID($conn, $productIDSearch);
+            $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
+            // echo "<p>\$past3weekdate is $past3weekdate </p>";
+            // echo "today is" . date('Y-m-d') . "<br>";
+            for ($i = 0; $i < count($_SESSION["SalePredict"]); $i++) {
+                echo $_SESSION["SalePredict"][$i]["sale_date"] . "<br>";
+                if ($_SESSION["SalePredict"][$i]["sale_date"] > $past3weekdate) {
+                    $Weekqty3 = $Weekqty3 +  $_SESSION["SalePredict"][$i]["sale_PQuantity"];
+                    $WeekPricePerRow3 = $WeekPricePerRow3 +  $_SESSION["SalePredict"][$i]["Price_Per_Product"];
+                }
+            }
+            $_SESSION["avg_qty_productID"] =  $Weekqty3 / 3;
+            $_SESSION["price_avg_productID"] = $WeekPricePerRow3 / 3;
         }
     }
+
     ?>
+
+    <!-- <a href="PredictSaleWeekly.php?action=lookname&idlook=<?php echo $row["SalePredict"]["product_ID"]; ?>">View Weekly Average</a> -->
     <form action="PredictSaleWeekly.php" method="POST">
         <section>
             <label for="productID">Product ID</label>
@@ -55,14 +75,16 @@
         <input type="submit" name="submitSearch" value="View Prediction">
     </form>
 
-    <table style="width: 100%;" class = "content-table">
+    <table style="width: 100%;" class="content-table">
         <tr>
-            
-            <td class = "test">Product ID</td>
-            <td> class = "test"Product Name</td>
-            <td class = "test">Start of The week date</td>
-            <td class = "test">Week No</td>
 
+            <td class="test">Product ID</td>
+            <td> class = "test"Product Name</td>
+            <td class="test">Start of The week date</td>
+            <td class="test">Week No</td>
+            <?php if (isset($Ride)) { ?>
+                <td>View Average Sale</td>
+            <?php } ?>
             <td>Sale Quantity</td>
             <td>Price</td>
         </tr>
@@ -77,6 +99,11 @@
 
                 <td><?php echo $row["sale_PQuantity"]; ?></td>
                 <td><?php echo $row["Price_Per_Product"]; ?></td>
+
+                <?php if (isset($Ride)) { ?>
+                    <td><a href="PredictSaleWeekly.php?action=lookname&idlook=<?php echo $row["product_ID"]; ?>">View Weekly Average</a></td>
+                <?php } ?>
+
             </tr>
         <?php
         }
