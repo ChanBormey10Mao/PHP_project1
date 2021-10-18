@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Predict Sale Weekly</title>
+    <link rel="stylesheet" href="PredictSaleWeekly.css">
 </head>
 
 <body>
@@ -71,7 +72,7 @@
         <input type="submit" name="submitSearch" value="View Prediction">
     </form>
 
-    <table style="width: 100%;">
+    <table style="width: 100%;" class = "content-table">
         <tr>
             <td>Product ID</td>
             <td>Product Name</td>
