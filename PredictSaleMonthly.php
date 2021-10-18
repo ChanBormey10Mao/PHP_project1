@@ -22,6 +22,7 @@
         if (isset($_POST["productID"]) && trim($_POST["productID"]) != "") {
             $productIDSearch = $_POST["productID"];
             $_SESSION["SalePredict"] = SearchProductID($conn, $productIDSearch);
+            print_r($_SESSION["SalePredict"]);
             $past3monthdate = date('Y-m-d', strtotime('-3 months', strtotime(date('Y-m-d'))));
             // echo "<p>\$past3monthdate is $past3monthdate </p>";
             // echo "today is" . date('Y-m-d') . "<br>";
