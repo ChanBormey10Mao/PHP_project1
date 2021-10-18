@@ -18,6 +18,8 @@ if(isset($_POST['export']))
            fputcsv($output, $row);  
       }  
       fclose($output);  
+}else{
+      echo "No coming to export.php";
 }
 
 ?>
