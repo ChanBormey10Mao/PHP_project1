@@ -19,7 +19,7 @@
     $_SESSION["SalePredict"] = RetrieveDataDB(($conn));
     if (isset($_POST["submitSearch"])) {
 
-        if (isset($_POST["productID"])) {
+        if (isset($_POST["productID"]) && trim($_POST["productID"]) != "") {
             $productIDSearch = $_POST["productID"];
             $_SESSION["SalePredict"] = SearchProductID($conn, $productIDSearch);
             $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
@@ -35,7 +35,7 @@
             $_SESSION["avg_qty_productID"] =  $Weekqty3 / 3;
             $_SESSION["price_avg_productID"] = $WeekPricePerRow3 / 3;
         }
-        if (isset($_POST["productName"])) {
+        if (isset($_POST["productName"]) && trim($_POST["productName"]) != "") {
             $productNameSearch = $_POST["productName"];
             $_SESSION["SalePredict"] = SearchByProductName($conn, $productNameSearch);
             $Ride = "";
