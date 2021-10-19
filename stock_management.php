@@ -1,5 +1,5 @@
 <?php
-include_once 'setting.php';
+include_once 'DBconnect.php';
 ?>
 
 
