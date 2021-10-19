@@ -78,6 +78,7 @@
     }
     function getPasswordRecords($conn, $username)
     {
+        echo $username . "<br>";
         $query = "SELECT password FROM users WHERE username = '$username';";
         $result = mysqli_query($conn, $query);
         $arr = array();
