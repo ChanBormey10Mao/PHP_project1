@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    <?php
+    include_once("settings.php");
+
+    session_start();
+    // echo session_id();
+    ?>
+    <?php
+    if (isset($_POST["loginBtn"])) {
+        //Email:
+        //get all existed emails
+        $existed_email_arr = getUsernameRecords($conn);
+        if (isset($_POST["username"])) {
+            $_SESSION["username"] =   stripslashes($_POST["username"]);
+        } else {
+            $username_err = "<p>Please input a username</p>";
+        }
+        //Passwords:
+        if (isset($_POST["password"])) {
+            $_SESSION["pwd_matched"] = $_POST["password"];
+            if (strcmp($_SESSION["pwd_matched"], getPasswordRecords($conn, $_SESSION["username"]))) {
+            }
+        }
+    } else {
+        $input_err = "<p style=\"color: red;\">Please Enter Required Input.</p>";                       //display an error
+    }
+    ?>
+    <form action="login1.php" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" name="username">
+        <label for="password">Password</label>
+        <input type="text" name="password">
+        <input type="submit" name="loginBtn" value="Log in">
+    </form>
+
+    <?php
+    function getUsernameRecords($conn)
+    {
+        $query = "SELECT username FROM users;";
+        $result = mysqli_query($conn, $query);
+        $arr = array();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                array_push($arr, $row["username"]);
+            }
+        }
+        $result->free_result();
+
+        return $arr;
+    }
+    function getPasswordRecords($conn, $username)
+    {
+        $query = "SELECT password FROM users WHERE username = '$username';";
+        $result = mysqli_query($conn, $query);
+        $arr = array();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                array_push($arr, $row["password"]);
+            }
+        }
+        $result->free_result();
+
+        return $arr[0]["password"];
+    }
+    function getEmployeeRecords($conn, $username, $pwd)
+    {
+        $query = "SELECT id,username,password FROM users WHERE (username = '$username' AND password= '$pwd');";
+        $result = mysqli_query($conn, $query);
+        $arr = array();
+        $temp = array();
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $temp = array(
+                    "id" => @$row["id"],
+                    "username" => @$row["username"],
+                    "password" => @$row["password"]
+                );
+                $arr = $arr + $temp;
+            }
+        }
+        $arr = $arr + $temp;
+        $result->free_result();
+
+        return $arr[0];
+    }
+    ?>
+</body>
+
+</html>
