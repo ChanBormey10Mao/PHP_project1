@@ -4,7 +4,7 @@ session_start();
 
 // Check if the user is already logged in, if yes then redirect him to index page
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    // header("location: Menu.php");
+    header("location: Menu.php");
     // exit;
 }
 
@@ -36,7 +36,7 @@ if (isset($_POST["Login"])) {
     if (empty($username_err) && empty($password_err)) {
         $username1 = $_SESSION["username1"];
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = $username1";
+        $sql = "SELECT id, username, password FROM users WHERE username = '$username1';";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
