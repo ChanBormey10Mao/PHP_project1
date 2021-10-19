@@ -1,18 +1,14 @@
-
-
 <?php
-$servername = "localhost";
-$username = "u596909339_MSG";
-$password = "PHPmsg#12345";
-$databasename = "u596909339_PHP_DB";
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'u596909339_MSG');
+define('DB_PASSWORD', 'PHPmsg#12345');
+define('DB_NAME', 'u596909339_PHP_DB');
 
-// Create connection
-session_start();
-$conn = @mysqli_connect($servername, $username, $password, $databasename);
-
+/* Attempt to connect to MySQL database */
+$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+ 
 // Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
 }
-
 ?>
