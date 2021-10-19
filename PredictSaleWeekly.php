@@ -245,8 +245,6 @@
     function RetrieveDataDB($conn)
     {
         $query = "SELECT sale_product.product_ID, product.product_name, SUM(sale_product.sale_PQuantity) as sale_PQuantity,sale.sale_date,ROUND(SUM(sale_product.sale_PQuantity) * product.Product_price,2) AS Price, 
-        -- DATE_ADD(sale.sale_date, INTERVAL(-DAYOFWEEK(sale.sale_date)) DAY) as start_date,
-        -- DATE_ADD(sale.sale_date, INTERVAL(-DAYOFWEEK(sale.sale_date)) DAY) as end_date, 
         WEEK(sale.sale_date,3) as Week_No 
         FROM sale  
         INNER JOIN sale_product
@@ -277,7 +275,7 @@
                 $info_arr = $info_arr + $info_arr_new;
             }
         } else {
-            echo "0 results UpdateInfo" . "<hr>";
+            echo "0 results RetrieveDataDB" . "<hr>";
             return null;
         }
         // echo "***************************" . "<br>";
