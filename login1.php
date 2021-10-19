@@ -65,9 +65,13 @@
         <?php if (isset($username_err)) { ?>
             <?php echo  $username_err; ?>
         <?php } ?>
-        <label for="password">Password</label>
-        <input type="password" name="password">
-        <?php if (isset($password_err)) { ?>
+        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control">
+            <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+                
+            <?php if (isset($password_err)) { ?>
             <?php echo  $password_err; ?>
         <?php } ?>
         <div class="form-group">
