@@ -17,6 +17,8 @@
     ?>
     <?php
     if (isset($_POST["loginBtn"])) {
+        $_SESSION["username"] = "";
+        $_SESSION["pwd_matched"] = "";
         //Email:
         //get all existed emails
         $existed_email_arr = getUsernameRecords($conn);
@@ -87,11 +89,14 @@
                 // echo $row["password"] . "row passowrd" . "<br>";
                 array_push($arr, $row["password"]);
             }
+        } else {
+            echo "0 Result - getPasswordRecords" . "<br>";
+            return null;
         }
 
         $result->free_result();
 
-        return $arr;
+        return $arr[0];
     }
     function getEmployeeRecords($conn, $username, $pwd)
     {
