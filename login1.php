@@ -35,11 +35,12 @@
             // echo  $_SESSION["pwd_matched"] . "____" . getPasswordRecords($conn, $_SESSION["username"]) . "<br>";
             if (strcmp($_SESSION["pwd_matched"], getPasswordRecords($conn, $_SESSION["username"])) == 0) {
                 $employee = getEmployeeRecords($conn, $_SESSION["username"], $_SESSION["pwd_matched"]);
-                if ($employee["username"] == "admin") {
+                print_r($employee);
+                if ($employee[0]["username"] == "admin") {
                     echo "in";
                     header("location:Menu.php");
                 }
-                if ($employee["username"] == "worker") {
+                if ($employee[0]["username"] == "worker") {
                     header("location:WorkerMenu.php");
                 }
             } else {
@@ -117,8 +118,7 @@
         }
         $arr = $arr + $temp;
         $result->free_result();
-
-        return $arr[0];
+        return $arr;
     }
     ?>
 </body>
