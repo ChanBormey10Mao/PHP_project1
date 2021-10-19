@@ -29,7 +29,7 @@
         if (isset($_POST["password"])) {
             $employee = array();
             $_SESSION["pwd_matched"] = $_POST["password"];
-            if (strcmp($_SESSION["pwd_matched"], getPasswordRecords($conn, $_SESSION["username"]))) {
+            if (strcmp($_SESSION["pwd_matched"], getPasswordRecords($conn, $_SESSION["username"])) == 0) {
                 $employee = getEmployeeRecords($conn, $_SESSION["username"], $_SESSION["pwd_matched"]);
                 if ($employee["username"] == "admin") {
                     header("location:AdminMenu.php");
@@ -37,17 +37,25 @@
                 if ($employee["username"] == "worker") {
                     header("location:WorkerMenu.php");
                 }
+            } else {
+                $password_err = "<p style=\"color: red;\">Password doesnt matched.</p>";
             }
         }
     } else {
-        $input_err = "<p style=\"color: red;\">Please Enter Required Input.</p>";                       //display an error
+        $password_err = "<p style=\"color: red;\">Please Enter Required Input.</p>";                       //display an error
     }
     ?>
     <form action="login1.php" method="POST">
         <label for="username">Username:</label>
         <input type="text" name="username">
+        <?php if (isset($username_err)) { ?>
+            <?php echo  $username_err; ?>
+        <?php } ?>
         <label for="password">Password</label>
         <input type="text" name="password">
+        <?php if (isset($password_err)) { ?>
+            <?php echo  $password_err; ?>
+        <?php } ?>
         <input type="submit" name="loginBtn" value="Log in">
     </form>
 
