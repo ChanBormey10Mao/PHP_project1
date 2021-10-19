@@ -76,12 +76,12 @@
         <tr>
             
             <td class = "test">Product ID</td>
-            <td> class = "test"Product Name</td>
+            <td class = "test"> Product Name</td>
             <td class = "test">Start of The week date</td>
             <td class = "test">Week No</td>
 
-            <td>Sale Quantity</td>
-            <td>Price</td>
+            <td class = "test">Sale Quantity</td>
+            <td class = "test">Price</td>
         </tr>
         <?php
         foreach ($_SESSION["SalePredict"] as $row) {
