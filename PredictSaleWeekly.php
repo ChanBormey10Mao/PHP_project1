@@ -10,26 +10,26 @@
 </head>
 
 <body onunload="func()">
-        <navbar>
-         <ul class="nav-list">
-          <li class="nav-item">
-            <a href="#">Home</a>
-        </li>
+    <navbar>
         <ul class="nav-list">
-          <li class="nav-item">
-            <a href="#">ProductPage</a>
-        </li>
-        <ul class="nav-list">
-          <li class="nav-item">
-            <a href="#">Review Page</a>
-        </li>
-        <ul class="nav-list">
-          <li class="nav-item">
-            <a href="#">IdkPage</a>
-        </li>
-</ul>
+            <li class="nav-item">
+                <a href="#">Home</a>
+            </li>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#">ProductPage</a>
+                </li>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#">Review Page</a>
+                    </li>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#">IdkPage</a>
+                        </li>
+                    </ul>
 
-</navbar>
+    </navbar>
     <?php include("DBconnect.php");
     session_start();
 
@@ -85,16 +85,16 @@
     <!-- <a href="PredictSaleWeekly.php?action=lookname&idlook=<?php echo $row["SalePredict"]["product_ID"]; ?>">View Weekly Average</a> -->
     <form action="PredictSaleWeekly.php" method="POST">
         <center>
-        <section>
-            <label for="productID">Product ID</label>
-            <input type="text" name="productID">
-        </section>
-    
-        <section>
-            <label for="productName">Product Name</label>
-            <input type="text" name="productName">
-        </section>
-        <!-- <label for="date">Date</label>
+            <section>
+                <label for="productID">Product ID</label>
+                <input type="text" name="productID">
+            </section>
+
+            <section>
+                <label for="productName">Product Name</label>
+                <input type="text" name="productName">
+            </section>
+            <!-- <label for="date">Date</label>
         <input type="text" name="date"> -->
         </center>
         <input type="submit" name="submitSearch" value="View Prediction">
@@ -256,7 +256,11 @@
         $info_arr = array();
 
         $result = mysqli_query($conn, $query);
-
+        if ($result == true) {
+            echo "true";
+        } else {
+            echo "false";
+        }
         if ($result->num_rows > 0) {
 
             while ($row = $result->fetch_assoc()) {
