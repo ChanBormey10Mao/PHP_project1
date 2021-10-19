@@ -10,6 +10,26 @@
 </head>
 
 <body onunload="func()">
+        <navbar>
+         <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#">Home</a>
+        </li>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#">ProductPage</a>
+        </li>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#">Review Page</a>
+        </li>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#">IdkPage</a>
+        </li>
+</ul>
+
+</navbar>
     <?php include("DBconnect.php");
     session_start();
 
@@ -64,21 +84,25 @@
 
     <!-- <a href="PredictSaleWeekly.php?action=lookname&idlook=<?php echo $row["SalePredict"]["product_ID"]; ?>">View Weekly Average</a> -->
     <form action="PredictSaleWeekly.php" method="POST">
+        <center>
         <section>
             <label for="productID">Product ID</label>
             <input type="text" name="productID">
         </section>
+    
         <section>
             <label for="productName">Product Name</label>
             <input type="text" name="productName">
         </section>
         <!-- <label for="date">Date</label>
         <input type="text" name="date"> -->
+        </center>
         <input type="submit" name="submitSearch" value="View Prediction">
     </form>
 
     <table style="width: 100%;" class="content-table">
         <tr>
+
 
             <td class="test">Product ID</td>
             <td class="test"> Product Name</td>
@@ -90,6 +114,7 @@
             <?php if (isset($Ride)) { ?>
                 <td>View Average Sale</td>
             <?php } ?>
+
         </tr>
         <?php
         foreach ($_SESSION["SalePredict"] as $row) {
