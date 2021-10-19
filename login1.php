@@ -28,7 +28,7 @@
         //Passwords:
         if (isset($_POST["password"])  && trim($_POST["password"]) != "") {
             $employee = array();
-            $_SESSION["pwd_matched"] = $_POST["password"];
+            $_SESSION["pwd_matched"] = stripslashes($_POST["password"]);
             echo strcmp($_SESSION["pwd_matched"], getPasswordRecords($conn, $_SESSION["username"])) . "<br>";
             if (strcmp($_SESSION["pwd_matched"], getPasswordRecords($conn, $_SESSION["username"])) == 0) {
                 $employee = getEmployeeRecords($conn, $_SESSION["username"], $_SESSION["pwd_matched"]);
@@ -91,7 +91,7 @@
     }
     function getEmployeeRecords($conn, $username, $pwd)
     {
-        $query = "SELECT id,username,password FROM users WHERE (username = '$username' AND password= '$pwd');";
+        $query = "SELECT id,username,password FROM users WHERE (username = '$username' AND password= '$pwd')";
         $result = mysqli_query($conn, $query);
         $arr = array();
         $temp = array();
