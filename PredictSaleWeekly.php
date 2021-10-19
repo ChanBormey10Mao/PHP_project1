@@ -64,10 +64,12 @@
 
     <!-- <a href="PredictSaleWeekly.php?action=lookname&idlook=<?php echo $row["SalePredict"]["product_ID"]; ?>">View Weekly Average</a> -->
     <form action="PredictSaleWeekly.php" method="POST">
+        <center>
         <section>
             <label for="productID">Product ID</label>
             <input type="text" name="productID">
         </section>
+    </center>
         <section>
             <label for="productName">Product Name</label>
             <input type="text" name="productName">
