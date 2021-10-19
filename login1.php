@@ -84,10 +84,11 @@
         $arr = array();
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo $row["password"] . "row passowrd" . "<br>";
+                // echo $row["password"] . "row passowrd" . "<br>";
                 array_push($arr, $row["password"]);
             }
         }
+        echo $arr[0]["password"] . "arr0password" . "<br>";
         $result->free_result();
 
         return $arr[0]["password"];
