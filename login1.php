@@ -20,15 +20,16 @@
         //Email:
         //get all existed emails
         $existed_email_arr = getUsernameRecords($conn);
-        if (isset($_POST["username"])) {
+        if (isset($_POST["username"]) && trim($_POST["username"]) != "") {
             $_SESSION["username"] =   stripslashes($_POST["username"]);
         } else {
             $username_err = "<p>Please input a username</p>";
         }
         //Passwords:
-        if (isset($_POST["password"])) {
+        if (isset($_POST["password"])  && trim($_POST["password"]) != "") {
             $employee = array();
             $_SESSION["pwd_matched"] = $_POST["password"];
+            echo strcmp($_SESSION["pwd_matched"], getPasswordRecords($conn, $_SESSION["username"])) . "<br>";
             if (strcmp($_SESSION["pwd_matched"], getPasswordRecords($conn, $_SESSION["username"])) == 0) {
                 $employee = getEmployeeRecords($conn, $_SESSION["username"], $_SESSION["pwd_matched"]);
                 if ($employee["username"] == "admin") {
@@ -38,7 +39,7 @@
                     header("location:WorkerMenu.php");
                 }
             } else {
-                $password_err = "<p style=\"color: red;\">Password doesnt matched.</p>";
+                $password_err = "<p style=\"color: red;\">Password doesn't matched.</p>";
             }
         }
     } else {
@@ -52,7 +53,7 @@
             <?php echo  $username_err; ?>
         <?php } ?>
         <label for="password">Password</label>
-        <input type="text" name="password">
+        <input type="password" name="password">
         <?php if (isset($password_err)) { ?>
             <?php echo  $password_err; ?>
         <?php } ?>
