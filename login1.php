@@ -61,18 +61,26 @@
                 <label for="username">Username</label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
-            </div>
-               
+            </div>           
         <?php if (isset($username_err)) { ?>
             <?php echo  $username_err; ?>
         <?php } ?>
-        <label for="password">Password</label>
-        <input type="password" name="password">
+
+        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control">
+            <span class="help-block"><?php echo $password_err; ?></span>
+        </div>
         <?php if (isset($password_err)) { ?>
             <?php echo  $password_err; ?>
         <?php } ?>
-        <input type="submit" name="loginBtn" value="Log in">
-    </form>
+
+
+        <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Login">
+        </div>
+        </form>
+    </div> 
 
     <?php
     function getUsernameRecords($conn)
