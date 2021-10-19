@@ -21,7 +21,7 @@
     if (isset($_POST["loginBtn"])) {
         $_SESSION["username"] = "";
         $_SESSION["pwd_matched"] = "";
-        //Email:
+        //username:
         //get all existed emails
         $existed_email_arr = getUsernameRecords($conn);
         if (isset($_POST["username"]) && trim($_POST["username"]) != "") {
@@ -29,6 +29,7 @@
         } else {
             $username_err = "<p>Please input a username</p>";
         }
+
         //Passwords:
         if (isset($_POST["password"])  && trim($_POST["password"]) != "") {
             $_SESSION["employee"] = array();
@@ -52,9 +53,16 @@
         $password_err = "<p style=\"color: red;\">Please Enter Required Input.</p>";                       //display an error
     }
     ?>
-    <form action="login1.php" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" name="username">
+    <div class="wrapper">
+        <h2>Login</h2>
+        <p>Please fill in your credentials to login.</p>
+        <form action="login1.php" method="POST">
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label for="username">Username</label>
+                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div>
+               
         <?php if (isset($username_err)) { ?>
             <?php echo  $username_err; ?>
         <?php } ?>
