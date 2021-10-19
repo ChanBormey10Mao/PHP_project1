@@ -36,6 +36,7 @@
             if (strcmp($_SESSION["pwd_matched"], getPasswordRecords($conn, $_SESSION["username"])) == 0) {
                 $employee = getEmployeeRecords($conn, $_SESSION["username"], $_SESSION["pwd_matched"]);
                 if ($employee["username"] == "admin") {
+                    echo "in";
                     header("location:Menu.php");
                 }
                 if ($employee["username"] == "worker") {
