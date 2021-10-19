@@ -71,7 +71,7 @@
             <?php echo  $password_err; ?>
         <?php } ?>
         <div class="form-group">
-        <input type="submit" name="loginBtn" value="Log in">
+        <input type="submit" name="loginBtn btn-primary" value="Login">
         </div>
     </form>
 
