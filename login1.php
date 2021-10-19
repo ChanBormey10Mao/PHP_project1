@@ -88,10 +88,10 @@
                 array_push($arr, $row["password"]);
             }
         }
-        echo $arr[0]["password"] . "arr0password" . "<br>";
+
         $result->free_result();
 
-        return $arr[0]["password"];
+        return $arr;
     }
     function getEmployeeRecords($conn, $username, $pwd)
     {
