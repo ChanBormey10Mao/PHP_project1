@@ -26,6 +26,7 @@
                 <button type="submit" name="productSearch" class=button>Search</button>
             </span>
         </form>
+        
         <?php
         $result = retriveDataFrDB_Product($conn);
         if (isset($_POST["productSearch"])) {

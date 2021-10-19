@@ -22,12 +22,13 @@
         if (isset($_POST["productID"]) && trim($_POST["productID"]) != "") {
             $productIDSearch = $_POST["productID"];
             $_SESSION["SalePredict"] = SearchProductID($conn, $productIDSearch);
-            $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
-            // echo "<p>\$past3weekdate is $past3weekdate </p>";
+            // print_r($_SESSION["SalePredict"]);
+            $past3monthdate = date('Y-m-d', strtotime('-3 months', strtotime(date('Y-m-d'))));
+            // echo "<p>\$past3monthdate is $past3monthdate </p>";
             // echo "today is" . date('Y-m-d') . "<br>";
             for ($i = 0; $i < count($_SESSION["SalePredict"]); $i++) {
                 // echo $_SESSION["SalePredict"][$i]["sale_date"] . "<br>";
-                if ($_SESSION["SalePredict"][$i]["sale_date"] > $past3weekdate) {
+                if ($_SESSION["SalePredict"][$i]["sale_date"] > $past3monthdate) {
                     $Weekqty3 = $Weekqty3 +  $_SESSION["SalePredict"][$i]["sale_PQuantity"];
                     $WeekPricePerRow3 = $WeekPricePerRow3 +  $_SESSION["SalePredict"][$i]["Price_Per_Product"];
                 }
@@ -46,12 +47,12 @@
         // echo $idlooked . "<br>";
         $_SESSION["SalePredict"] = SearchProductID($conn, $idlooked);
 
-        $past3weekdate = date('Y-m-d', strtotime('-3 weeks', strtotime(date('Y-m-d'))));
-        // echo "<p>\$past3weekdate is $past3weekdate </p>";
+        $past3monthdate = date('Y-m-d', strtotime('-3 months', strtotime(date('Y-m-d'))));
+        // echo "<p>\$past3monthdate is $past3monthdate </p>";
         // echo "today is" . date('Y-m-d') . "<br>";
         for ($i = 0; $i < count($_SESSION["SalePredict"]); $i++) {
             // echo $_SESSION["SalePredict"][$i]["sale_date"] . "<br>";
-            if ($_SESSION["SalePredict"][$i]["sale_date"] > $past3weekdate) {
+            if ($_SESSION["SalePredict"][$i]["sale_date"] > $past3monthdate) {
                 $Weekqty3 = $Weekqty3 +  $_SESSION["SalePredict"][$i]["sale_PQuantity"];
                 $WeekPricePerRow3 = $WeekPricePerRow3 +  $_SESSION["SalePredict"][$i]["Price_Per_Product"];
             }
@@ -62,8 +63,8 @@
 
     ?>
 
-    <!-- <a href="PredictSaleWeekly.php?action=lookname&idlook=<?php echo $row["SalePredict"]["product_ID"]; ?>">View Weekly Average</a> -->
-    <form action="PredictSaleWeekly.php" method="POST">
+    <!-- <a href="PredictSaleMonthly.php?action=lookname&idlook=<?php echo $row["SalePredict"]["product_ID"]; ?>">View Weekly Average</a> -->
+    <form action="PredictSaleMonthly.php" method="POST">
         <section>
             <label for="productID">Product ID</label>
             <input type="text" name="productID">
@@ -79,21 +80,19 @@
 
     <table style="width: 100%;" class="content-table">
         <tr>
-<<<<<<< HEAD
-           
-=======
 
             <td class="test">Product ID</td>
             <td class="test"> Product Name</td>
-            <td class="test">Start of The week date</td>
-            <td class="test">Week No</td>
+            <td class="test">Sale Date</td>
+            <td class="test">Month</td>
+
+            <!-- <td class="test">Week No</td> -->
 
             <td class="test">Sale Quantity</td>
             <td class="test">Price</td>
             <?php if (isset($Ride)) { ?>
                 <td>View Average Sale</td>
             <?php } ?>
->>>>>>> 244dcbe72e41cecd6ffc88d18543d003485c14f6
         </tr>
         <?php
         foreach ($_SESSION["SalePredict"] as $row) {
@@ -101,14 +100,14 @@
             <tr>
                 <td><?php echo $row["product_ID"]; ?></td>
                 <td><?php echo $row["product_name"]; ?></td>
-                <td><?php echo $row["start_date"]; ?></td>
-                <td><?php echo $row["Week_No"]; ?></td>
+                <td><?php echo $row["sale_date"]; ?></td>
+                <td><?php echo $row["month"]; ?></td>
 
                 <td><?php echo $row["sale_PQuantity"]; ?></td>
                 <td><?php echo $row["Price_Per_Product"]; ?></td>
 
                 <?php if (isset($Ride)) { ?>
-                    <td><a href="PredictSaleWeekly.php?action=lookname&idlook=<?php echo $row["product_ID"]; ?>">View Weekly Average</a></td>
+                    <td><a href="PredictSaleMonthly.php?action=lookname&idlook=<?php echo $row["product_ID"]; ?>">View Weekly Average</a></td>
                 <?php } ?>
 
             </tr>
@@ -120,12 +119,12 @@
     if (isset($_SESSION["avg_qty_productID"])) {
     ?>
         <div>
-            <p>The Average Quantity sold out quantity in the past 3 weeks for <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <span style="color:green;"><?php echo $_SESSION["avg_qty_productID"]; ?></span> </p>
+            <p>The Average Quantity sold out quantity in the past 3 months for <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <span style="color:green;"><?php echo $_SESSION["avg_qty_productID"]; ?></span> </p>
             <p>The avergae sale price made from <?php echo $_SESSION["SalePredict"][0]["product_name"]; ?> is <span style="color:green;"><?php echo $_SESSION["price_avg_productID"]; ?></span> </p>
 
         </div>
         <div>
-            <button><a href="PredictSaleWeekly.php">Back</a></button>
+            <button><a href="PredictSaleMonthly.php">Back</a></button>
             <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             <button><a href="Menu.php">Return to Menu Page</a></button>
         </div>
@@ -139,15 +138,15 @@
     function SearchByProductName($conn, $product_name)
     {
         $query = "SELECT sale_product.product_ID, product.product_name, sale_product.sale_PQuantity,sale.sale_date,ROUND(sale_product.sale_PQuantity * product.Product_price,2) AS Price,        
-        WEEK(sale.sale_date,3) as Week_No 
+        DATE_ADD(NOW(),INTERVAL -90 DAY) , MONTH(sale_date) as month
         FROM sale  
         INNER JOIN sale_product
         ON sale.sale_ID = sale_product.sale_ID
         INNER JOIN product
         ON sale_product.product_ID = product.product_ID
         WHERE product.product_name LIKE '%$product_name%'
-        GROUP BY sale_product.product_ID,WEEK(sale.sale_date,3)
-        ORDER BY WEEK(sale.sale_date,3) DESC;  ";
+        GROUP BY sale_product.product_ID,DATE_ADD(NOW(),INTERVAL -90 DAY) 
+        ORDER BY DATE_ADD(NOW(),INTERVAL -90 DAY)  DESC;  ";
         $info_arr = array();
 
         $result = mysqli_query($conn, $query);
@@ -157,17 +156,15 @@
             while ($row = $result->fetch_assoc()) {
                 // print_r($row);
                 // echo  "<br>";
-                $row["start_date"] = date($row["sale_date"], strtotime("this week"));
-                $row["end_date"] =  date('Y-m-d', strtotime('sunday this week', strtotime($row["sale_date"])));
+                // $row["start_date"] = date($row["sale_date"], strtotime("this week"));
+                // $row["end_date"] =  date('Y-m-d', strtotime('sunday this week', strtotime($row["sale_date"])));
                 $info_arr_new[] = array(
                     "product_ID" => @$row["product_ID"],
                     "product_name" => @$row["product_name"],
                     "sale_PQuantity" => @$row["sale_PQuantity"],
                     "Price_Per_Product" => @$row["Price"],
-                    "Week_No" => @$row["Week_No"],
                     "sale_date" => @$row["sale_date"],
-                    "start_date" => @$row["start_date"],
-                    "end_date" => @$row["end_date"]
+                    "month" => @$row["month"]
                 );
                 $info_arr = $info_arr + $info_arr_new;
             }
@@ -182,15 +179,15 @@
     function SearchProductID($conn, $product_ID)
     {
         $query = "SELECT sale_product.product_ID, product.product_name, SUM(sale_product.sale_PQuantity) as sale_PQuantity,sale.sale_date,ROUND(SUM(sale_product.sale_PQuantity) * product.Product_price,2) AS Price,        
-        WEEK(sale.sale_date,3) as Week_No 
+        DATE_ADD(NOW(),INTERVAL -90 DAY)  , MONTH(sale_date) as month
         FROM sale  
         INNER JOIN sale_product
         ON sale.sale_ID = sale_product.sale_ID
         INNER JOIN product
         ON sale_product.product_ID = product.product_ID
         WHERE sale_product.product_ID = $product_ID 
-        GROUP BY sale_product.product_ID,WEEK(sale.sale_date,3)
-        ORDER BY WEEK(sale.sale_date,3) DESC LIMIT 100;  ";
+        GROUP BY sale_product.product_ID,DATE_ADD(NOW(),INTERVAL -90 DAY) 
+        ORDER BY sale_date >= DATE_ADD(NOW(),INTERVAL -90 DAY)  DESC LIMIT 100;  ";
         $info_arr = array();
 
         $result = mysqli_query($conn, $query);
@@ -200,8 +197,7 @@
             while ($row = $result->fetch_assoc()) {
                 // print_r($row);
                 // echo  "<br>";
-                $row["start_date"] = date($row["sale_date"], strtotime("this week"));
-                $row["end_date"] =  date('Y-m-d', strtotime('sunday this week', strtotime($row["sale_date"])));
+
                 $info_arr_new[] = array(
                     "product_ID" => @$row["product_ID"],
                     "product_name" => @$row["product_name"],
@@ -209,6 +205,8 @@
                     "Price_Per_Product" => @$row["Price"],
                     "Week_No" => @$row["Week_No"],
                     "sale_date" => @$row["sale_date"],
+                    "month" => @$row["month"]
+
                 );
                 $info_arr = $info_arr + $info_arr_new;
             }
@@ -220,20 +218,18 @@
         // print_r($info_arr);
         return $info_arr;
     }
-
     function RetrieveDataDB($conn)
     {
         $query = "SELECT sale_product.product_ID, product.product_name, SUM(sale_product.sale_PQuantity) as sale_PQuantity,sale.sale_date,ROUND(SUM(sale_product.sale_PQuantity) * product.Product_price,2) AS Price, 
-        -- DATE_ADD(sale.sale_date, INTERVAL(-DAYOFWEEK(sale.sale_date)) DAY) as start_date,
-        -- DATE_ADD(sale.sale_date, INTERVAL(-DAYOFWEEK(sale.sale_date)) DAY) as end_date, 
-        WEEK(sale.sale_date,3) as Week_No 
+       
+        DATE_ADD(NOW(),INTERVAL -90 DAY)  as Week_No 
         FROM sale  
         INNER JOIN sale_product
         ON sale.sale_ID = sale_product.sale_ID
         INNER JOIN product
         ON sale_product.product_ID = product.product_ID
-        GROUP BY sale_product.product_ID,WEEK(sale.sale_date,3)
-        ORDER BY WEEK(sale.sale_date,3) DESC;";
+        GROUP BY sale_product.product_ID,DATE_ADD(NOW(),INTERVAL -90 DAY) 
+        ORDER BY DATE_ADD(NOW(),INTERVAL -90 DAY)  DESC;";
         $info_arr = array();
 
         $result = mysqli_query($conn, $query);
@@ -263,15 +259,15 @@
         // print_r($info_arr);
         return $info_arr;
     }
+
     ?>
     <script type="text/javascript">
         function func() {
             if (window.history.previous) {
-                window.location('PredictSaleWeekly.php');
+                window.location('PredictSaleMonthly.php');
             }
         }
     </script>
-
 </body>
 
 </html>
