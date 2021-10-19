@@ -70,7 +70,9 @@
         <?php if (isset($password_err)) { ?>
             <?php echo  $password_err; ?>
         <?php } ?>
+        <div class="form-group">
         <input type="submit" name="loginBtn" value="Log in">
+        </div>
     </form>
 
     <?php
