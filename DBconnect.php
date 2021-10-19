@@ -2,8 +2,8 @@
 
 <?php
 $servername = "localhost";
-$username = "u596909339_MSG";
-$password = "PHPmsg#12345";
+$username = "root";
+$password = "";
 $databasename = "u596909339_PHP_DB";
 
 // Create connection
