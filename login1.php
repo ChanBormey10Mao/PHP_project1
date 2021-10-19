@@ -31,12 +31,12 @@
         if (isset($_POST["password"])  && trim($_POST["password"]) != "") {
             $employee = array();
             $_SESSION["pwd_matched"] = stripslashes($_POST["password"]);
-            echo strcmp($_SESSION["pwd_matched"], getPasswordRecords($conn, $_SESSION["username"])) . "<br>";
-            echo  $_SESSION["pwd_matched"] . "____" . getPasswordRecords($conn, $_SESSION["username"]) . "<br>";
+            // echo strcmp($_SESSION["pwd_matched"], getPasswordRecords($conn, $_SESSION["username"])) . "<br>";
+            // echo  $_SESSION["pwd_matched"] . "____" . getPasswordRecords($conn, $_SESSION["username"]) . "<br>";
             if (strcmp($_SESSION["pwd_matched"], getPasswordRecords($conn, $_SESSION["username"])) == 0) {
                 $employee = getEmployeeRecords($conn, $_SESSION["username"], $_SESSION["pwd_matched"]);
                 if ($employee["username"] == "admin") {
-                    header("location:AdminMenu.php");
+                    header("location:Menu.php");
                 }
                 if ($employee["username"] == "worker") {
                     header("location:WorkerMenu.php");
