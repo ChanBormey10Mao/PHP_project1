@@ -49,9 +49,9 @@
                 $password_err = "<p style=\"color: red;\">Password doesn't matched.</p>";
             }
         }
-    } else {
-        $password_err = "<p style=\"color: red;\">Please Enter Required Input.</p>";                       //display an error
-    }
+    } //else {
+        //$password_err = "<p style=\"color: red;\">Please Enter Required Input.</p>";                       //display an error
+    //}
     ?>
     <div class="wrapper">
         <h2>Login</h2>
@@ -69,8 +69,8 @@
             <label for="password">Password</label>
             <input type="password" name="password" class="form-control">
             <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
-                
+        </div>
+
             <?php if (isset($password_err)) { ?>
             <?php echo  $password_err; ?>
         <?php } ?>
