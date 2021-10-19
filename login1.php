@@ -84,7 +84,7 @@
         $arr = array();
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo $row["password"] . "<br>";
+                echo $row["password"] . "row passowrd" . "<br>";
                 array_push($arr, $row["password"]);
             }
         }
