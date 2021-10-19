@@ -69,13 +69,14 @@
             <label for="productID">Product ID</label>
             <input type="text" name="productID">
         </section>
-    </center>
+    
         <section>
             <label for="productName">Product Name</label>
             <input type="text" name="productName">
         </section>
         <!-- <label for="date">Date</label>
         <input type="text" name="date"> -->
+        </center>
         <input type="submit" name="submitSearch" value="View Prediction">
     </form>
 
