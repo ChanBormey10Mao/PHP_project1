@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    include_once("settings.php");
+    include_once("DBconnect.php");
 
     session_start();
     // echo session_id();
@@ -27,8 +27,16 @@
         }
         //Passwords:
         if (isset($_POST["password"])) {
+            $employee = array();
             $_SESSION["pwd_matched"] = $_POST["password"];
             if (strcmp($_SESSION["pwd_matched"], getPasswordRecords($conn, $_SESSION["username"]))) {
+                $employee = getEmployeeRecords($conn, $_SESSION["username"], $_SESSION["pwd_matched"]);
+                if ($employee["username"] == "admin") {
+                    header("location:AdminMenu.php");
+                }
+                if ($employee["username"] == "worker") {
+                    header("location:WorkerMenu.php");
+                }
             }
         }
     } else {
