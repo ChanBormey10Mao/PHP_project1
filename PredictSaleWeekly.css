@@ -10,9 +10,13 @@
     background-color: #009879;
     color: #ffffff;
     text-align: left;
+    font-weight: bold;
+    padding: 12px 25px; 
+
     
 }
  
 .content-table td {
-    padding: 12px 15px;
+padding: 12px 15px;
+
 }

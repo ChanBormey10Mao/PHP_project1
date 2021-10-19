@@ -79,9 +79,7 @@
 
     <table style="width: 100%;" class="content-table">
         <tr>
-<<<<<<< HEAD
-           
-=======
+
 
             <td class="test">Product ID</td>
             <td class="test"> Product Name</td>
@@ -93,7 +91,7 @@
             <?php if (isset($Ride)) { ?>
                 <td>View Average Sale</td>
             <?php } ?>
->>>>>>> 244dcbe72e41cecd6ffc88d18543d003485c14f6
+
         </tr>
         <?php
         foreach ($_SESSION["SalePredict"] as $row) {
