@@ -16,7 +16,7 @@ include_once 'DBconnect.php';
 <navbar>
         <ul class="nav-list">
             <li class="nav-item">
-                <a href="Menu.php">Menu</a>
+                <a href="AdminMenu.php">Menu</a>
             </li>
 
                     </ul>

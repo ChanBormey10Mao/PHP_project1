@@ -13,7 +13,7 @@
     <navbar>
         <ul class="nav-list">
             <li class="nav-item">
-                <a href="menu.css">Menu</a>
+                <a href="AdminMenu.php">Menu</a>
             </li>
 
                     </ul>
