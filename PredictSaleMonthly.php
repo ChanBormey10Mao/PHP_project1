@@ -120,7 +120,7 @@
                 <td><?php echo $row["Price_Per_Product"]; ?></td>
 
                 <?php if (isset($Ride)) { ?>
-                    <td><a href="PredictSaleMonthly.php?action=lookname&idlook=<?php echo $row["product_ID"]; ?>">View Weekly Average</a></td>
+                    <td><a href="PredictSaleMonthly.php?action=lookname&idlook=<?php echo $row["product_ID"]; ?>">View Monthly Average</a></td>
                 <?php } ?>
 
             </tr>
