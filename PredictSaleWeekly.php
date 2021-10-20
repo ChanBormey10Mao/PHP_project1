@@ -85,9 +85,10 @@
             </section>
             <!-- <label for="date">Date</label>
         <input type="text" name="date"> -->
-        </center>
+        
         <input type="submit" name="submitSearch" value="View Prediction">
     </form>
+    </center>
 
     <table style="width: 100%;" class="content-table">
         <tr>
