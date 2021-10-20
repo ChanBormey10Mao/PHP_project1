@@ -117,7 +117,7 @@
 
 
         ?>
-        <table style="width:100%;">
+        <table style="width: 100%;" class="content-table">
             <tr>
                 <td class="head_table product_search_textInput">Item Name</td>
                 <td class="head_table">Quantity</td>
