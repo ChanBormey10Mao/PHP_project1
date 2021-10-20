@@ -9,9 +9,19 @@ include_once 'DBconnect.php';
 <html>
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title>Stock Managment</title>
+	<link rel="stylesheet" href="stock_management.css">
 </head>
 <body>
+<navbar>
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="menu.css">Menu</a>
+            </li>
+
+                    </ul>
+
+    </navbar>
 <center>
 <form method="post" action="#">
 
