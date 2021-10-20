@@ -35,7 +35,7 @@
         
     </form>
     
-            <button><a href="export.php">Export file to CSV</a></button>
+            <button class = "button"><a href="export.php">Export file to CSV</a></button>
 
         <!-- <form method="post" action="export.php" align="center"> 
            
