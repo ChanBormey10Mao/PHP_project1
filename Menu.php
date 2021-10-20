@@ -16,7 +16,7 @@
         <nav>
           <div class="sale">
             <a href="CreateSale.php" class="design">Create New Sale</a>
-            <a href="ReviewSale.php">class="design"View Sales</a>
+            <a href="ReviewSale.php" class="design"> View Sales</a>
             <a href="logout.php" class="design">Sign Out</a>
             <!-- <a href="ReturnedSale.php">Return Product</a> -->
           </div>
