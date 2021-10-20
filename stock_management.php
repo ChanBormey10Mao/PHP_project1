@@ -12,6 +12,7 @@ include_once 'DBconnect.php';
 	<title></title>
 </head>
 <body>
+<center>
 <form method="post" action="#">
 
 <fieldset>
@@ -111,6 +112,7 @@ include_once 'DBconnect.php';
         });
     </script>
 </head>
+</center>
 <body>
 <?php
 $sql="select product.product_ID,product.product_name,product.product_desc,product.Product_price,Inventory.Quantity,product.images from product inner join Inventory ON product.product_ID=Inventory.product_ID;";
