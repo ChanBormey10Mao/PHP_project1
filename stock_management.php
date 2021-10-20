@@ -114,6 +114,7 @@ include_once 'DBconnect.php';
     </script>
 </head>
 <body>
+<center>
 <?php
 $sql="select product.product_ID,product.product_name,product.product_desc,product.Product_price,Inventory.Quantity,product.images from product inner join Inventory ON product.product_ID=Inventory.product_ID;";
 $result=mysqli_query($conn,$sql);
@@ -166,6 +167,7 @@ if(!$result)
 	}//if successful database connection
 	//close the database connection 
 	mysqli_close($conn);	
+
 
 	
 
