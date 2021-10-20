@@ -15,6 +15,16 @@
 
     ?>
 
+<navbar>
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="menu.css">Menu</a>
+            </li>
+
+                    </ul>
+
+    </navbar>
+
     <?php
     $_SESSION["SalePredict"] = RetrieveDataDB(($conn));
     if (isset($_POST["submitSearch"])) {
@@ -65,6 +75,7 @@
 
     <!-- <a href="PredictSaleMonthly.php?action=lookname&idlook=<?php echo $row["SalePredict"]["product_ID"]; ?>">View Weekly Average</a> -->
     <form action="PredictSaleMonthly.php" method="POST">
+        <center>
         <section>
             <label for="productID">Product ID</label>
             <input type="text" name="productID">
@@ -73,6 +84,7 @@
             <label for="productName">Product Name</label>
             <input type="text" name="productName">
         </section>
+</center>
         <!-- <label for="date">Date</label>
         <input type="text" name="date"> -->
         <input type="submit" name="submitSearch" value="View Prediction">

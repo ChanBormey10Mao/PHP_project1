@@ -24,7 +24,7 @@ $result=mysqli_query($conn,$query);
                 </form>  
                 <br />  
                 <div class="table-responsive" id="employee_table">  
-                     <table class="table table-bordered">  
+                     <table class="table table-bordered" >  
                           <tr>  
                                <th width="5%">ID</th>  
                                <th width="25%">Product Name</th>  
