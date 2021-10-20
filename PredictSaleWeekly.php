@@ -15,18 +15,7 @@
             <li class="nav-item">
                 <a href="#">Home</a>
             </li>
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a href="#">ProductPage</a>
-                </li>
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="#">Review Page</a>
-                    </li>
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="#">IdkPage</a>
-                        </li>
+
                     </ul>
 
     </navbar>
