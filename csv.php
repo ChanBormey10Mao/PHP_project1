@@ -15,6 +15,15 @@ $result=mysqli_query($conn,$query);
            <link rel="stylesheet" href="csv.css">
       </head>  
       <body>  
+      <navbar>
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="menu.css">Menu</a>
+            </li>
+
+                    </ul>
+
+    </navbar>
            <br /><br />  
            <div class="container" style="width:900px;">  
                 <h2 align="center">Export Mysql Table Data to CSV file in PHP</h2>  
