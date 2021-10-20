@@ -247,7 +247,7 @@
 
         $result = mysqli_query($conn, $query);
         if ($result == true) {
-            echo "true";
+            
         } else {
             echo "false";
         }
