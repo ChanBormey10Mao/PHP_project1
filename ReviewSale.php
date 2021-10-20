@@ -46,7 +46,7 @@
     include("DBconnect.php");
     session_start();
     ?>
-    <table style="width:100%;">
+    <table style="width: 100%;" class="content-table">
         <tr>
             <td>Sale ID</td>
             <td>Date</td>
