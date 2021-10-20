@@ -84,11 +84,12 @@
             <label for="productName">Product Name</label>
             <input type="text" name="productName">
         </section>
-</center>
+
         <!-- <label for="date">Date</label>
         <input type="text" name="date"> -->
         <input type="submit" name="submitSearch" value="View Prediction">
     </form>
+    </center>
 
     <table style="width: 100%;" class="content-table">
         <tr>
