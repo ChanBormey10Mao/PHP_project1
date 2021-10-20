@@ -1,4 +1,4 @@
-.table table-bordered {
+.table-bordered {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
@@ -19,19 +19,21 @@
     
 }
 
-.content-table td {
+.table-bordered td {
 padding: 12px 15px;
 
 }
 
-.table table-bordered tbody tr {
+.table-bordered tbody tr {
     border-bottom: 1px solid #dddddd; 
 }
 
-.table table-bordered tbody tr:nth-of-type(even) {
+.table-bordered tbody tr:nth-of-type(even) {
 background-color: #f3f3f3;
 }
 
-.table table-bordered tbody tr:last-of-type{
+
+
+.table-bordered tbody tr:last-of-type{
     border-bottom: 2px solid #009879;
 }
