@@ -155,7 +155,7 @@
             <td><?php echo $arrSale[0]["sale_date"]; ?></td>
             <td><?php echo $arrSale[0]["sale_time"]; ?></td>
             <td>
-                <table style="width:80%;">
+                <table style="width:80%;"class="content-table">
                     <!-- <tr>
                         <td>Picture</td>
                         <td>Name</td>
