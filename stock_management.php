@@ -137,7 +137,6 @@ if(!$result)
 			"<th scope=\"col\">Quantity</th>\n" .
 			"<th scope=\"col\">images</th>\n" .
 			"</tr>\n";
-
 		//retrieved current report pointed by the result pointer
 			 // get all the info until it null
 			 while ($row=mysqli_fetch_assoc($result))
