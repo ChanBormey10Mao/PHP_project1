@@ -37,7 +37,7 @@
   </header>
   </center>
   <div class="banner-area">
-    <!-- hello1 -->
+    <!-- hello1 --->
   </div>
   <div class="content-area">
     <div class="wrapper">
