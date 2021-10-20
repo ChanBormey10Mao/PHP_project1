@@ -83,4 +83,5 @@ input[type="submit"] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  text-align: center;
 }
