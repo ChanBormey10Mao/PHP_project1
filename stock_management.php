@@ -11,8 +11,8 @@ include_once 'DBconnect.php';
 	<meta charset="utf-8">
 	<title></title>
 </head>
-<center>
 <body>
+<center>
 <form method="post" action="#">
 
 <fieldset>
@@ -112,9 +112,8 @@ include_once 'DBconnect.php';
         });
     </script>
 </head>
-	
-<body>
 </center>
+<body>
 <?php
 $sql="select product.product_ID,product.product_name,product.product_desc,product.Product_price,Inventory.Quantity,product.images from product inner join Inventory ON product.product_ID=Inventory.product_ID;";
 $result=mysqli_query($conn,$sql);
