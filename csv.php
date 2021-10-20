@@ -12,8 +12,18 @@ $result=mysqli_query($conn,$query);
            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+           <link rel="stylesheet" href="csv.css">
       </head>  
       <body>  
+      <navbar>
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="menu.css">Menu</a>
+            </li>
+
+                    </ul>
+
+    </navbar>
            <br /><br />  
            <div class="container" style="width:900px;">  
                 <h2 align="center">Export Mysql Table Data to CSV file in PHP</h2>  
@@ -24,7 +34,7 @@ $result=mysqli_query($conn,$query);
                 </form>  
                 <br />  
                 <div class="table-responsive" id="employee_table">  
-                     <table class="table table-bordered">  
+                     <table class="table-bordered" >  
                           <tr>  
                                <th width="5%">ID</th>  
                                <th width="25%">Product Name</th>  

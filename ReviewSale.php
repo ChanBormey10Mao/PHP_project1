@@ -35,7 +35,7 @@
         
     </form>
     
-            <button><a href="export.php">Export file to CSV</a></button>
+            <button class = "button"><a href="export.php">Export file to CSV</a></button>
 
         <!-- <form method="post" action="export.php" align="center"> 
            
@@ -46,7 +46,7 @@
     include("DBconnect.php");
     session_start();
     ?>
-    <table style="width:100%;">
+    <table style="width: 100%;" class="content-table">
         <tr>
             <td>Sale ID</td>
             <td>Date</td>
@@ -155,7 +155,7 @@
             <td><?php echo $arrSale[0]["sale_date"]; ?></td>
             <td><?php echo $arrSale[0]["sale_time"]; ?></td>
             <td>
-                <table style="width:80%;">
+                <table style="width:80%;"class="content-table">
                     <!-- <tr>
                         <td>Picture</td>
                         <td>Name</td>

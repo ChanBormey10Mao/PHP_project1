@@ -13,20 +13,9 @@
     <navbar>
         <ul class="nav-list">
             <li class="nav-item">
-                <a href="#">Home</a>
+                <a href="menu.css">Menu</a>
             </li>
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a href="#">ProductPage</a>
-                </li>
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="#">Review Page</a>
-                    </li>
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="#">IdkPage</a>
-                        </li>
+
                     </ul>
 
     </navbar>
@@ -96,9 +85,10 @@
             </section>
             <!-- <label for="date">Date</label>
         <input type="text" name="date"> -->
-        </center>
+        
         <input type="submit" name="submitSearch" value="View Prediction">
     </form>
+    </center>
 
     <table style="width: 100%;" class="content-table">
         <tr>

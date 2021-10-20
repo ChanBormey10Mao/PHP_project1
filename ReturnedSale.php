@@ -53,7 +53,7 @@
 
     ?>
     <form action="ReturnedSale.php" method="POST" name="EditSaleForm">
-        <table style="width:100%;">
+        <table style="width:100%;"class="content-table">
             <?php foreach ($_SESSION["Product"] as $row) { ?>
                 <tr>
                     <td>Product Name:
