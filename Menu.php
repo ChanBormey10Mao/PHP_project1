@@ -28,6 +28,9 @@
           <div>
             <a href="PredictSaleWeekly.php"class="design">View Weekly Sale Average</a>
           </div>
+          <div>
+            <a href="PredictSaleMonthly.php"class="design">View Monthly Sale Average</a>
+          </div>
           <a href="stock_management.php"class="design">Stock Managment</a>
         </nav>
   </div>
