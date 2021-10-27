@@ -136,9 +136,9 @@
 
         </div>
         <div>
-            <button><a href="PredictSaleWeekly.php">Back</a></button>
+            <button><a href="PredictSaleWeekly.php" class="button">Back</a></button>
             <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <button><a href="Menu.php">Return to Menu Page</a></button>
+            <button><a href="Menu.php"class="button">Return to Menu Page</a></button>
         </div>
     <?php
         unset($_SESSION["avg_qty_productID"]);
