@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Predict Sale Weekly</title>
+    <title></title>
     <link rel="stylesheet" href="PredictSaleWeekly.css">
 </head>
 
@@ -13,7 +13,7 @@
     <navbar>
         <ul class="nav-list">
             <li class="nav-item">
-                <a href="AdminMenu.php">Menu</a>
+                
             </li>
 
                     </ul>
